@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nepalium - Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="nepalium green final.png">
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    * {
+      margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif;
+    }
+    body {
+      display: flex; justify-content: center; align-items: center;
+      min-height: 100vh; background: #000; position: relative; overflow: hidden;
+    }
+    body::before {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(#0f0, #f0f);
+      clip-path: circle(30% at right 70%);
+    }
+    body::after {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(#2196f3, #e91e63);
+      clip-path: circle(20% at 10% 10%);
+    }
+    .login-container {
+      position: relative; width: 400px; padding: 40px;
+      background: rgba(19, 200, 94, 0.85);
+      border-radius: 20px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1); z-index: 10;
+    }
+    .brand-logo { text-align: center; margin-bottom: 30px; }
+    .brand-logo h1 { color: #fff; font-size: 2rem; font-weight: 600; }
+    .brand-logo h1 span { color: #0f0; display: block; font-size: 1.5rem; margin-top: 5px; }
+
+    .login-form h2 {
+      font-size: 1.8em; color: white; text-align: center; margin-bottom: 30px; position: relative;
+    }
+    .login-form h2::after {
+      content: ''; position: absolute; bottom: -10px; left: 50%;
+      transform: translateX(-50%); width: 80px; height: 3px;
+      background: #0f0; border-radius: 3px;
+    }
+    .input-group {
+      position: relative; margin-bottom: 30px;
+    }
+    .input-group .icon {
+      position: absolute; left: 10px; top: 50%;
+      transform: translateY(-50%); color: white; font-size: 1.2em;
+    }
+    .input-group input {
+      width: 100%; padding: 12px 20px 12px 40px;
+      background: transparent; border: none;
+      border-bottom: 2px solid white; outline: none;
+      font-size: 1em; color: white; transition: 0.3s;
+    }
+    .input-group input:focus { border-bottom-color: #0f0; }
+    .input-group label {
+      position: absolute; left: 40px; top: 50%;
+      transform: translateY(-50%);
+      color: white; pointer-events: none; transition: 0.3s;
+    }
+    .input-group input:focus ~ label,
+    .input-group input:valid ~ label {
+      top: -10px; left: 35px; font-size: 0.8em; color: #0f0;
+    }
+
+    .form-options {
+      display: flex; justify-content: space-between;
+      align-items: center; margin-bottom: 20px;
+      font-size: 0.9em; color: white;
+    }
+    .remember-me { display: flex; align-items: center; }
+    .remember-me input { margin-right: 5px; }
+    .forgot-password a {
+      color: white; text-decoration: none; transition: 0.3s;
+    }
+    .forgot-password a:hover {
+      color: #0f0; text-decoration: underline;
+    }
+
+    .login-btn {
+      width: 100%; padding: 12px;
+      background: white; color: #000;
+      border: none; border-radius: 30px;
+      font-size: 1em; font-weight: 600;
+      cursor: pointer; transition: 0.3s; margin-bottom: 20px;
+    }
+    .login-btn:hover {
+      background: #0f0; color: white;
+      box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+    }
+
+    .register-link {
+      text-align: center; color: white; font-size: 0.9em;
+    }
+    .register-link a {
+      color: #0f0; text-decoration: none; font-weight: 600; transition: 0.3s;
+    }
+    .register-link a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="brand-logo">
+      <h1 style="color: rgb(38, 248, 5);">
+        <img width="100%" src="final nepalium white.png" alt="">
+      </h1>
+    </div>
+
+    <form class="login-form" id="loginForm">
+      <h2>User Login</h2>
+
+      <div class="input-group">
+        <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+        <input type="email" id="email" required>
+        <label>Email Address</label>
+      </div>
+
+      <div class="input-group">
+        <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+        <input type="password" id="password" required>
+        <label>Password</label>
+      </div>
+
+      <div class="form-options">
+        <div class="remember-me">
+          <input type="checkbox" id="remember">
+          <label for="remember">Remember me</label>
+        </div>
+        <div class="forgot-password">
+          <a href="#">Forgot password?</a>
+        </div>
+      </div>
+
+      <button type="submit" class="login-btn">LOGIN</button>
+
+      <div class="register-link">
+        <p>Don't have an account? <a href="register.html">Register here</a></p>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('loginForm');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); // Prevent form from submitting
+
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      // ✅ Define correct credentials
+      const validEmail = "saradpandey2004@gmail.com";
+      const validPassword = "nepal123";
+      
+
+      // ✅ Check credentials
+      if (email === validEmail && password === validPassword) {
+        alert("Login successful!");
+        window.location.href = "index.html"; // Redirect to homepage
+      } else {
+        alert("❌ Invalid email or password.");
+      }
+    });
+  </script>
+</body>
+</html>

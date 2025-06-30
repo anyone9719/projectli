@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Select Delivery Date</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="responsive.css" />
+  <style>
+   
+
+    .container {
+      max-width: 700px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+
+    .message-box {
+      margin-top: 20px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+   <!-- Top Header -->
+<div class="top-header">
+  <div class="container-fluid">
+    <div class="row align-items-center justify-content-between">
+      <div class="col-auto">
+        <a href="tel:9749781949"><i class="bi bi-telephone-fill"></i> 9749781949</a>
+      </div>
+      <div class="col-auto social-media d-flex">
+        <a href="#"><i class="bi bi-facebook"></i></a>
+        <a href="#"><i class="bi bi-youtube"></i></a>
+        <a href="#"><i class="bi bi-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+      <!-- Left: Logo -->
+      <a class="navbar-brand me-3" href="#">
+        <img src="logo.jpg" alt="Logo" />
+      </a>
+
+      <!-- Center: Search -->
+      <div class="search-container mx-auto d-none d-lg-block">
+        <input type="text" placeholder="Search products..." />
+      </div>
+
+      <!-- Right: Nav + Cart -->
+      <div class="d-flex align-items-center">
+        <!-- Nav Items -->
+        <div class="collapse navbar-collapse desktop-only">
+          <ul class="navbar-nav me-3 mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="Gallery.html">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="Services.html">Services</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="signin.html">Sign In</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="Register.html">Register</a></li>
+          </ul>
+        </div>
+
+        <!-- Desktop Cart -->
+        <a href="Add to cart.html" class="text-decoration-none desktop-only">
+          <div class="cart-summary">
+            <h6>🛒 Cart (<span id="cart-count">0</span>)</h6>
+            <p>Total: Rs. <span id="cart-total">0</span></p>
+          </div>
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button class="navbar-toggler ms-2 d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Search + Cart (only shown in small screens) -->
+  <div class="mobile-extra">
+    <input type="text" placeholder="Search products..." />
+    <a href="Add to cart.html" class="text-decoration-none">
+      <div class="cart-summary">
+        <h6>🛒 Cart (<span id="cart-count">0</span>)</h6>
+        <p>Total: Rs. <span id="cart-total">0</span></p>
+      </div>
+    </a>
+  </div>
+
+  <!-- Offcanvas Menu -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="Gallery.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="Services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="signin.html">Sign In</a></li>
+        <li class="nav-item"><a class="nav-link" href="Register.html">Register</a></li>
+      </ul>
+    </div>
+  </div>
+    <!-- Swiper Slider -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img
+          src="https://thumbs.dreamstime.com/b/agriculture-vegetable-field-landscape-view-freshly-growing-84090367.jpg"
+          alt="">
+      </div>
+      <div class="swiper-slide">
+        <img
+          src="https://img.freepik.com/free-photo/green-tea-bud-leaves-green-tea-plantations-morning_335224-955.jpg?semt=ais_hybrid&w=740"
+          alt="">
+      </div>
+      <div class="swiper-slide">
+        <img src="https://cdn.pixabay.com/photo/2023/03/31/14/52/rice-field-7890204_640.jpg" alt="">
+      </div>
+    </div>
+
+    <!-- pagination dots -->
+    <div class="swiper-pagination"></div>
+
+    <!-- add these for prev/next -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+  <!-- Welcome Section -->
+  <div class="welcome-Section">
+    <h2 class="welcome-title">Welcome to Empowering Nepali Farmers through E-commerce</h2>
+    <p class="welcome-text">
+      Namaste! We're thrilled to welcome you to Nepalium which is a digital space built with heart, purpose, and the
+      hardworking hands of Nepali farmers.
+      Our mission is to connect farmers directly with customers across Nepal, eliminating middlemen and ensuring fair
+      prices, fresh local produce, and a thriving agricultural community.
+      <br><br>
+      Here, every purchase tells a story, supports a family, and strengthens our economy.
+      Let’s build a better future for Nepali agriculture. <br> Explore. Connect. Empower.
+    </p>
+  </div>
+<div class="container">
+  <h3 class="text-success text-center mb-4">📦 Select Your Delivery Date</h3>
+
+  <form id="deliveryForm">
+    <div class="mb-3">
+      <label for="name" class="form-label">Customer Name</label>
+      <input type="text" class="form-control" id="name" required placeholder="Your name">
+    </div>
+
+    <div class="mb-3">
+      <label for="date" class="form-label">Delivery Date</label>
+      <input type="date" class="form-control" id="date" required>
+      <div id="dateMessage" class="alert alert-info mt-2 message-box">
+        You’ve selected your delivery date!
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success w-100">Confirm Delivery</button>
+  </form>
+
+  <div class="appointment-list mt-4">
+    <h5 class="text-primary">📋 Delivery Schedule:</h5>
+    <div id="appointmentsContainer"></div>
+  </div>
+</div>
+
+  <!-- Main Footer Section -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-column">
+        <div class="footer-title-large">NEPALIUM</div>
+        <ul class="footer-list">
+          <li class="footer-list-item"><a href="signin.html" class="footer-link">LOG IN</a></li>
+          <li class="footer-list-item"><a href="signin.html" class="footer-link">SIGN IN</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+         <div class="footer-title">
+          <a href="index.html">HOME</a></div>
+        <ul class="footer-list">
+          <li class="footer-list-item"><a href="contact.html" class="footer-link">Contact us</a></li>
+          <li class="footer-list-item"><a href="datepicker.html" class="footer-link">Date picker</a></li>
+          <li class="footer-list-item"><a href="Services.html" class="footer-link">SERVICES</a></li>
+          <li class="footer-list-item"><a href="Register.html" class="footer-link">REGISTER</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <div class="footer-title">ACCOUNTS AND SHIPPING INFO</div>
+        <ul class="footer-list">
+          <li class="footer-list-item"><a href="#" class="footer-link">PROFILE INFO</a></li>
+          <li class="footer-list-item"><a href="#" class="footer-link">REFUND POLICY</a></li>
+          <li class="footer-list-item"><a href="#" class="footer-link">RETURN POLICY</a></li>
+          <li class="footer-list-item"><a href="#" class="footer-link">CANCELLATION POLICY</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <div class="footer-title">WE ACCEPTS</div>
+        <div class="payment-logos">
+          <img class="imags" src="https://www.setoghar.com/wp-content/uploads/2024/01/esewa-vs-khalti-digital-wallet-in-nepal.webp" alt="eSewa" class="payment-logo">
+        
+          <img class="imags" src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Esewa_logo.webp" alt="Fonepay" class="payment-logo">
+        </div>
+      </div>
+    </div>
+  </footer>
+<div class="footer-bottom">
+<div class="col-lg-6">
+  <p class="footer-bottom-text">CopyRight NEPALIUM © 2025</p>
+</div>
+<div class="col-lg-6 fotter-link">
+    <a href="#" class="footer-bottom-link">Terms & Conditions</a>
+        <a href="#" class="footer-bottom-link">Privacy Policy</a>
+</div>
+
+    </div>  
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+<script>
+  const appointments = [];
+
+  document.getElementById('date').addEventListener('click', () => {
+    const msg = document.getElementById('dateMessage');
+    msg.style.display = 'block';
+  });
+
+  document.getElementById('deliveryForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const date = document.getElementById('date').value;
+
+    if (!name || !date) return;
+
+    appointments.push({ name, date });
+
+    // Sort by date
+    appointments.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+    renderAppointments();
+
+    // Reset form and message
+    this.reset();
+    document.getElementById('dateMessage').style.display = 'none';
+  });
+
+  function renderAppointments() {
+    const container = document.getElementById('appointmentsContainer');
+    container.innerHTML = "";
+
+    if (appointments.length === 0) {
+      container.innerHTML = "<p class='text-muted'>No deliveries scheduled yet.</p>";
+      return;
+    }
+
+    appointments.forEach((appt, index) => {
+      const div = document.createElement('div');
+      div.className = 'appointment-item';
+      div.innerHTML = `<strong>${index + 1}. ${appt.name}</strong> — ${appt.date}`;
+      container.appendChild(div);
+    });
+  }
+</script>
+
+</body>
+</html>

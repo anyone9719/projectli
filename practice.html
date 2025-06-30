@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Navbar</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <style>
+    /* Top Header Styling */
+.top-header {
+  padding: 10px 60px;
+  background-color: #D9D9D9;
+}
+
+.top-header a {
+  text-decoration: none;
+  color: #000;
+  font-size: 15px;
+}
+
+.top-header .bi-telephone-fill {
+  font-size: 16px;
+  color: #000;
+}
+
+.social-media {
+  gap: 20px;
+}
+
+.social-media a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-media a i {
+  font-size: 18px;
+  color: #333;
+}
+
+.social-media a:hover {
+  background-color: #007bff;
+}
+
+.social-media a:hover i {
+  color: #fff;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+  .top-header {
+    padding: 10px 20px;
+    text-align: center;
+  }
+
+  .top-header .row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .social-media {
+    justify-content: center;
+  }
+}
+
+    .navbar-custom {
+      background-color: #32C06F;
+      padding: 12px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      font-weight: 500;
+    }
+
+    .navbar-brand img {
+      height: 90px;
+      max-height: 100px;
+      margin-top: -10px;
+      margin-bottom: -10px;
+      object-fit: contain;
+    }
+
+    .search-container {
+      width: 400px;
+    }
+
+    .search-container input {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .cart-summary {
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 8px;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      color: #000;
+    }
+
+    .cart-summary h6,
+    .cart-summary p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    @media (max-width: 991.98px) {
+      .desktop-only {
+        display: none !important;
+      }
+
+      .mobile-extra {
+        display: block;
+        padding: 10px 20px;
+        background-color: #32C06F;
+      }
+
+      .mobile-extra input {
+        width: 100%;
+        padding: 8px 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+
+      .mobile-extra .cart-summary {
+        background: #fff;
+        color: #000;
+        margin-top: 0;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .mobile-extra {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+ 
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

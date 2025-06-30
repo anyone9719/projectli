@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nepalium - Our Services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="responsive.css" />
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .service-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+    .service-icon {
+      font-size: 40px;
+      color: #28a745;
+    }
+    .card-text {
+      font-size: 12px;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+   <!-- Top Header -->
+<div class="top-header">
+  <div class="container-fluid">
+    <div class="row align-items-center justify-content-between">
+      <div class="col-auto">
+        <a href="tel:9749781949"><i class="bi bi-telephone-fill"></i> 9749781949</a>
+      </div>
+      <div class="col-auto social-media d-flex">
+        <a href="#"><i class="bi bi-facebook"></i></a>
+        <a href="#"><i class="bi bi-youtube"></i></a>
+        <a href="#"><i class="bi bi-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Navbar Section -->
+  <nav class="navbar-custom navbar navbar-expand-lg">
+    <a class="navbar-brand" href="#">
+      <img class="logo" src="final nepalium white.png" alt="Logo">
+    </a>
+    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Search Bar -->
+  <div class="search-container">
+  <input type="text" id="searchBar" placeholder="Search products..." />
+  <div id="suggestions" class="suggestions-box"></div>
+</div>
+
+    
+
+   <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+        <div class="search-con">
+  <input type="text" id="searchBar" placeholder="Search products..." />
+  <div id="suggestions" class="suggestions-box"></div>
+</div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="Gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="Services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="signin.html">Sign In</a></li>
+        </ul>
+      </div>
+    
+<a href="Add to cart.html" class="cart-wraper"> 
+  <div class="cart-summary sticky-cart text-dark bg-white">
+    <h6>🛒 Cart (<span id="cart-count">0</span>)</h6>
+    <p>Total: Rs. <span id="cart-total">0</span></p>
+  </div>
+</a>
+    </div>
+
+    <a href="Add to cart.html" class="cart-wrapper"> 
+  <div class="cart-summary sticky-cart text-dark bg-white">
+    <h6>🛒 Cart (<span id="cart-count">0</span>)</h6>
+    <p>Total: Rs. <span id="cart-total">0</span></p>
+  </div>
+</a>
+   
+
+
+  </nav>
+
+  <header class=" text-center py-4 mb-5">
+    <h1>Nepalium Services</h1>
+    <p class="lead">Empowering Nepali Farmers. Serving Every Nepali Household.</p>
+  </header>
+
+  <main class="container">
+    <div class="row g-4">
+      
+      <div class="col-md-4 col-sm-6">
+        <div class="card text-center service-card p-3 h-100">
+          <div class="card-body">
+            <div class="service-icon mb-3"><i class="bi bi-truck"></i></div>
+            <h5 class="card-title">Fast Delivery</h5>
+            <p class="card-text">We deliver fresh farm products directly to your doorstep within 24 hours inside Kathmandu Valley.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="card text-center service-card p-3 h-100">
+          <div class="card-body">
+            <div class="service-icon mb-3"><i class="bi bi-box-seam"></i></div>
+            <h5 class="card-title">Direct From Farmers</h5>
+            <p class="card-text">We connect consumers with real Nepali farmers to ensure quality, transparency, and fair pricing.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="card text-center service-card p-3 h-100">
+          <div class="card-body">
+            <div class="service-icon mb-3"><i class="bi bi-graph-up-arrow"></i></div>
+            <h5 class="card-title">Empowering Farmers</h5>
+            <p class="card-text">We help Nepali farmers grow their reach through digital platforms, increasing income and visibility.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="card text-center service-card p-3 h-100">
+          <div class="card-body">
+            <div class="service-icon mb-3"><i class="bi bi-currency-rupee"></i></div>
+            <h5 class="card-title">Affordable Pricing</h5>
+            <p class="card-text">By removing middlemen, we ensure affordable prices for consumers and fair profits for farmers.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="card text-center service-card p-3 h-100">
+          <div class="card-body">
+            <div class="service-icon mb-3"><i class="bi bi-shop"></i></div>
+            <h5 class="card-title">Local Marketplace</h5>
+            <p class="card-text">Our platform promotes local agricultural businesses and helps build a stronger Nepali economy.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="card text-center service-card p-3 h-100">
+          <div class="card-body">
+            <div class="service-icon mb-3"><i class="bi bi-phone"></i></div>
+            <h5 class="card-title">24/7 Support</h5>
+            <p class="card-text">Our customer support team is always ready to help you with orders, returns, or queries.</p>
+          </div>
+        </div>
+      </div>
+<!-- New Services -->
+
+<div class="col-md-4 col-sm-6">
+  <div class="card text-center service-card p-3 h-100">
+    <div class="card-body">
+      <div class="service-icon mb-3"><i class="bi bi-arrow-left-right"></i></div>
+      <h5 class="card-title">Return & Refund Policy</h5>
+      <p class="card-text">We offer a hassle-free return and refund policy to ensure 100% customer satisfaction.</p>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 col-sm-6">
+  <div class="card text-center service-card p-3 h-100">
+    <div class="card-body">
+      <div class="service-icon mb-3"><i class="bi bi-star-fill"></i></div>
+      <h5 class="card-title">Product Reviews & Ratings</h5>
+      <p class="card-text">Our platform lets customers share their reviews and rate products to help others shop smarter.</p>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 col-sm-6">
+  <div class="card text-center service-card p-3 h-100">
+    <div class="card-body">
+      <div class="service-icon mb-3"><i class="bi bi-credit-card-2-back"></i></div>
+      <h5 class="card-title">Digital Payment Options</h5>
+      <p class="card-text">We accept eSewa, Khalti, ConnectIPS, and bank transfers to make your payment process seamless.</p>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 col-sm-6">
+  <div class="card text-center service-card p-3 h-100">
+    <div class="card-body">
+      <div class="service-icon mb-3"><i class="bi bi-recycle"></i></div>
+      <h5 class="card-title">Eco-Friendly Packaging</h5>
+      <p class="card-text">All products are delivered in biodegradable or reusable packaging to promote sustainability.</p>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 col-sm-6">
+  <div class="card text-center service-card p-3 h-100">
+    <div class="card-body">
+      <div class="service-icon mb-3"><i class="bi bi-boxes"></i></div>
+      <h5 class="card-title">Wholesale Supply for Businesses</h5>
+      <p class="card-text">We offer bulk order services at discounted rates for restaurants, retailers, and institutions.</p>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </main>
+
+   <!-- Top Feature Strip -->
+  <div class="top-feature-strip">
+    <div class="container feature-list">
+      <div class="feature-item">
+        <img class="images" src="https://www.digitalsahuji.com/public/assets/front-end/png/delivery.png" alt="Fast Delivery" class="feature-icon"/>
+        <p class="feature-text">Fast Delivery all<br>across the country</p>
+      </div>
+      <div class="feature-item">
+        <img class="images" src="https://www.digitalsahuji.com/public/assets/front-end/png/Payment.png" alt="Safe Payment" class="feature-icon" />
+        <p class="feature-text">Safe Payment</p>
+      </div>
+      <div class="feature-item">
+        <img class="images" src="https://www.digitalsahuji.com/public/assets/front-end/png/money.png" alt="Return Policy" class="feature-icon" />
+        <p class="feature-text">7 Days Return Policy</p>
+      </div>
+      <div class="feature-item">
+        <img class="images" src="https://www.digitalsahuji.com/public/assets/front-end/png/Genuine.png" alt="Authentic Products" class="feature-icon" />
+        <p class="feature-text">100% Authentic Products</p>
+      </div>
+    </div>
+  </div>
+  <!-- Main Footer Section -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-column">
+        <div class="footer-title-large">NEPALIUM</div>
+        <ul class="footer-list">
+          <li class="footer-list-item"><a href="#" class="footer-link">LOG IN</a></li>
+          <li class="footer-list-item"><a href="#" class="footer-link">SIGN IN</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <div class="footer-title">
+          <a href="index.html">HOME</a></div>
+        <ul class="footer-list">
+          <li class="footer-list-item"><a href="contact.html" class="footer-link">Contact us</a></li>
+          <li class="footer-list-item"><a href="#" class="footer-link">OUR PRODUCTS</a></li>
+          <li class="footer-list-item"><a href="Services.html" class="footer-link">SERVICES</a></li>
+          <li class="footer-list-item"><a href="Register.html" class="footer-link">REGISTER</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <div class="footer-title">ACCOUNTS AND SHIPPING INFO</div>
+        <ul class="footer-list">
+          <li class="footer-list-item"><a href="#" class="footer-link">PROFILE INFO</a></li>
+          <li class="footer-list-item"><a href="#" class="footer-link">REFUND POLICY</a></li>
+          <li class="footer-list-item"><a href="#" class="footer-link">RETURN POLICY</a></li>
+          <li class="footer-list-item"><a href="#" class="footer-link">CANCELLATION POLICY</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <div class="footer-title">WE ACCEPTS</div>
+        <div class="payment-logos">
+          <img class="imags" src="https://www.setoghar.com/wp-content/uploads/2024/01/esewa-vs-khalti-digital-wallet-in-nepal.webp" alt="eSewa" class="payment-logo">
+        
+          <img class="imags" src="https://www.nepaloffers.com/public/offer/2E8D059B912CD6F-fonepay.png" alt="Fonepay" class="payment-logo">
+        </div>
+      </div>
+    </div>
+  </footer>
+<div class="footer-bottom">
+<div class="col-lg-6">
+  <p class="footer-bottom-text">CopyRight NEPALIUM © 2025</p>
+</div>
+<div class="col-lg-6 fotter-link">
+    <a href="#" class="footer-bottom-link">Terms & Conditions</a>
+        <a href="#" class="footer-bottom-link">Privacy Policy</a>
+</div>
+
+    </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
