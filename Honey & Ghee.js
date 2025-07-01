@@ -17,8 +17,6 @@ const products = {
 
 };
 
-let cartCount = 0;
-let cartTotal = 0;
 
 function renderProducts(highlight = "") {
   let targetElement = null;
@@ -46,7 +44,7 @@ function renderProducts(highlight = "") {
               <i class="bi bi-star"></i>
               <i class="bi bi-star"></i>
             </div>
-            <button class="btn btn-primary mb-2 w-100" onclick="addToCart(${product.price})">Add to Cart</button>
+            <button class="btn btn-primary mb-2 w-100" onclick="addToCart(${product.id})">Add to Cart</button>
             <button class="btn btn-success w-100">Buy Now</button>
           </div>
         </div>
@@ -64,13 +62,36 @@ function renderProducts(highlight = "") {
   }
 }
 
-function addToCart(price) {
-  cartCount++;
-  cartTotal += price;
-  document.getElementById('cart-count').textContent = cartCount;
-  document.getElementById('cart-total').textContent = cartTotal;
+function addToCart(productId) {
+  const allProducts = Object.values(products).flat();
+  const product = allProducts.find(p => p.id === productId);
+  if (!product) return;
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const existingItem = cart.find(item => item.id === productId);
+
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    cart.push({ ...product, quantity: 1 });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartSummary();
 }
 
+function updateCartSummary() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+  document.querySelectorAll(".cart-count").forEach(el => el.textContent = totalCount);
+  document.querySelectorAll(".cart-total").forEach(el => el.textContent = totalPrice);
+}
+
+// Search Suggestion System
 const searchBar = document.getElementById('searchBar');
 const suggestionsBox = document.getElementById('suggestions');
 
@@ -109,4 +130,8 @@ searchBar.addEventListener('input', function () {
   suggestionsBox.style.display = 'block';
 });
 
-renderProducts();
+// Load products and cart count on page load
+window.addEventListener("load", () => {
+  renderProducts();
+  updateCartSummary();
+});

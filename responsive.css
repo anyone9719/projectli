@@ -56,9 +56,22 @@ display: flex;
     margin-top: 20px;
   }
 }
-  
-
- 
+  @media (max-width: 375px) {
+.search-con{
+      display: block;
+      width: 370px !important;
+      padding: 10px;
+      
+    }
+  }
+ @media (max-width: 320px) {
+.search-con{
+      display: block;
+      width: 320px !important;
+      padding: 10px;
+      
+    }
+  }
 
     @media (max-width: 991.98px) {
       .desktop-only {
@@ -148,6 +161,12 @@ display: flex;
   .welcome-text {
     font-size: 0.85rem;
   }
+  .search-con{
+      display: block;
+      width: 350px;
+      padding: 10px;
+      
+    }
 }
 
 
@@ -183,6 +202,13 @@ display: flex;
   .image-main-products {
     height: 160px;
   }
+  
+  .search-con{
+      display: block;
+      width: 400px;
+      padding: 10px;
+      
+    }
 }
 
 /* Very small devices */
