@@ -1,9 +1,9 @@
 // Initialize Swiper for Hero Slider
-const swiper = new Swiper('.mySwiper', {
+const heroSwiper = new Swiper('.mySwiper', {
   loop: true,
   autoplay: {
-    delay: 9000,
-    disableOnInteraction: false
+    delay: 3000,
+    disableOnInteraction: false,
   },
   pagination: {
     el: '.swiper-pagination',
@@ -29,6 +29,9 @@ const customProducts = [
   { name: 'Cauliflower', price: 90, img: 'https://www.epicgardening.com/wp-content/uploads/2023/09/Types-of-Cauliflower.jpg', reviews: 4 }
 ];
 
+// Swiper instance variable for custom slider
+let customSwiperInstance = null;
+
 // Render Custom Swiper Slider
 function renderCustomSlider(data = customProducts) {
   const wrapper = document.getElementById('custom-product-list');
@@ -53,13 +56,16 @@ function renderCustomSlider(data = customProducts) {
     wrapper.appendChild(slide);
   });
 
-  new Swiper('.customSwiper', {
+  if (customSwiperInstance) {
+    customSwiperInstance.destroy(true, true);
+  }
+
+  customSwiperInstance = new Swiper('.customSwiper', {
     slidesPerView: 4,
     spaceBetween: 30,
     loop: true,
     autoplay: {
-      delay: 3000,
-      disableOnInteraction: false
+      delay: 4000,
     },
     navigation: {
       prevEl: '.custom-prev',
@@ -73,35 +79,38 @@ function renderCustomSlider(data = customProducts) {
     }
   });
 
-  setTimeout(() => {
-    document.querySelectorAll('.custom-slide').forEach(s => s.classList.add('show'));
-  }, 300);
+  document.querySelectorAll('.custom-slide').forEach(s => s.classList.add('show'));
 }
 
-// Cart Data
-let cartCount = 0;
-let cartTotal = 0;
-
-// Update both cart views (header + offcanvas)
-function updateCartDisplay(count, total) {
-  document.querySelectorAll('.cart-count').forEach(el => el.textContent = count);
-  document.querySelectorAll('.cart-total').forEach(el => el.textContent = total);
-}
-
-// Add to cart logic
+// Add to Cart Functionality with localStorage persistence
 function addToCart(name, price) {
-  cartCount++;
-  cartTotal += price;
-  updateCartDisplay(cartCount, cartTotal);
-  alert(`${name} added to cart!`);
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const existing = cart.find(item => item.name === name);
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    cart.push({ name, price, quantity: 1 });
+  }
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartDisplay(cart);
+
 }
 
-// Buy now logic
+// Update cart count and total amount display in header (assumes .cart-count and .cart-total elements exist)
+function updateCartDisplay(cart) {
+  const totalCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+  const totalAmount = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+
+  document.querySelectorAll('.cart-count').forEach(el => el.textContent = totalCount);
+  document.querySelectorAll('.cart-total').forEach(el => el.textContent = `Rs. ${totalAmount}`);
+}
+
+// Buy Now handler
 function buyNow(name, price) {
   alert(`Proceeding to checkout for ${name} - Rs. ${price}`);
 }
 
-// Click event for custom Add to Cart buttons
+// Listen for add to cart button clicks
 document.addEventListener('click', e => {
   if (e.target.classList.contains('addcart')) {
     const name = e.target.dataset.name;
@@ -110,7 +119,7 @@ document.addEventListener('click', e => {
   }
 });
 
-// Products Section
+// Products list for other sections (vegetables-fruits-list)
 const products = {
   "vegetables-fruits-list": [
     { name: 'Tomato', price: 40, img: 'https://www.almanac.com/sites/default/files/users/The%20Editors/tomatoes_ozgurdonmaz_gettyimages-edit_full_width.jpeg', reviews: 4 },
@@ -128,16 +137,14 @@ const products = {
   ]
 };
 
-// Render Products Section
+// Render product cards for sections, highlighting searched product if needed
 function renderProducts(highlight = "") {
-  let targetElement = null;
-
   Object.keys(products).forEach(sectionId => {
     const row = document.getElementById(sectionId);
     row.innerHTML = '';
 
     products[sectionId].forEach(product => {
-      const isHighlight = (product.name.toLowerCase() === highlight.toLowerCase());
+      const isHighlight = product.name.toLowerCase() === highlight.toLowerCase();
       const highlightClass = isHighlight ? 'border-success text-success' : '';
 
       const col = document.createElement('div');
@@ -156,19 +163,11 @@ function renderProducts(highlight = "") {
           </div>
         </div>`;
       row.appendChild(col);
-
-      if (isHighlight && !targetElement) {
-        targetElement = row.parentElement.previousElementSibling;
-      }
     });
   });
-
-  if (targetElement) {
-    targetElement.scrollIntoView({ behavior: 'smooth' });
-  }
 }
 
-// Search Functionality
+// Search functionality for product suggestions and highlight on click
 const searchBar = document.getElementById('searchBar');
 const suggestionsBox = document.getElementById('suggestions');
 
@@ -214,6 +213,10 @@ searchBar.addEventListener('input', function () {
   suggestionsBox.style.display = 'block';
 });
 
-// Initial Renders
-renderCustomSlider();
-renderProducts();
+// On page load, render slider and products, update cart count & total
+window.onload = () => {
+  renderCustomSlider();
+  renderProducts();
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  updateCartDisplay(cart);
+};

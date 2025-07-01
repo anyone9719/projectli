@@ -1,328 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Nepalium</title>
-    <link rel="stylesheet" href="styyyyyle.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <!-- Nepali Date Picker CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/nepali-datepicker-reactjs@4.0.6/dist/index.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us - Nepalium</title>
 
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Your custom CSS file -->
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="responsive.css" />
-    <style>
-        :root {
-    --neon-green: #39ff14;
-    --dark-bg: #a1d68e;
-    --darker-bg: #0a0a0a;
-    --text-light:rgba(255, 255, 255, 0.6);
-    --text-muted: rgba(255, 255, 255, 0.6);
-}
+  <link rel="stylesheet" href="  responsive.css" />
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: var(--dark-bg);
-    color: var(--text-light);
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-    position: relative;
-    z-index: 1;
-    flex: 1;
-}
-
-header {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-h1, h2, h3 {
-    font-family: 'Rajdhani', sans-serif;
-    font-weight: 600;
-}
-
-h1 {
-    font-size: 2.8rem;
-    margin-bottom: 1rem;
-    color: white;
-}
-
-h1 span {
-    color: var(--neon-green);
-    text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
-}
-
-.subtitle {
-    font-weight: 300;
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* Horizontal Contact Info */
-.contact-info-horizontal {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
-}
-
-.info-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.5rem;
-    background: var(--darker-bg);
-    border: 1px solid rgba(57, 255, 20, 0.1);
-    border-radius: 8px;
-    padding: 1.5rem;
-    flex: 1;
-    min-width: 300px;
-    max-width: 500px;
-    transition: all 0.3s ease;
-}
-
-.info-item:hover {
-    border-color: rgba(57, 255, 20, 0.3);
-    box-shadow: 0 5px 15px rgba(57, 255, 20, 0.1);
-}
-
-.info-icon {
-    font-size: 1.8rem;
-    color: var(--neon-green);
-    margin-top: 0.3rem;
-}
-
-.info-content h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-    color: var(--neon-green);
-}
-
-.info-content p {
-    color: var(--text-muted);
-    font-weight: 300;
-}
-
-/* Contact Grid */
-.contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
-}
-
-.contact-card {
-    background: var(--darker-bg);
-    border: 1px solid rgba(57, 255, 20, 0.1);
-    border-radius: 8px;
-    padding: 2rem;
-    transition: all 0.3s ease;
-    text-align: center;
-}
-
-.contact-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(57, 255, 20, 0.3);
-}
-
-.card-icon {
-    font-size: 2rem;
-    color: var(--neon-green);
-    margin-bottom: 1.5rem;
-}
-
-.card-title {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    color: var(--neon-green);
-}
-
-.card-content {
-    color: var(--text-muted);
-    font-weight: 300;
-}
-
-/* Contact Form */
-.contact-form {
-    background: var(--darker-bg);
-    border: 1px solid rgba(57, 255, 20, 0.1);
-    border-radius: 8px;
-    padding: 2rem;
-    margin-top: 2rem;
-}
-
-.form-title {
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
-    color: var(--neon-green);
-    text-align: center;
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-row {
-    display: flex;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.half-width {
-    flex: 1;
-}
-
-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 400;
-    color: var(--text-light);
-}
-
-input, textarea {
-    width: 100%;
-    padding: 0.8rem 1rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(57, 255, 20, 0.2);
-    border-radius: 4px;
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    transition: all 0.3s ease;
-}
-
-input:focus, textarea:focus {
-    outline: none;
-    border-color: var(--neon-green);
-    box-shadow: 0 0 10px rgba(57, 255, 20, 0.2);
-}
-
-textarea {
-    min-height: 150px;
-    resize: vertical;
-}
-
-.submit-btn {
-    background: transparent;
-    color: var(--neon-green);
-    border: 2px solid var(--neon-green);
-    padding: 0.8rem 2rem;
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    display: block;
-    margin: 2rem auto 0;
-}
-
-.submit-btn:hover {
-    background: var(--neon-green);
-    color: var(--dark-bg);
-    box-shadow: 0 0 15px rgba(57, 255, 20, 0.5);
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 2rem;
-    margin-top: 3rem;
-    color: var(--text-muted);
-    font-weight: 300;
-}
-
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
-
-.social-link {
-    color: var(--text-muted);
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
-}
-
-.social-link:hover {
-    color: var(--neon-green);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        padding: 1.5rem;
+  <style>
+    /* You can add small page-specific overrides here if needed */
+    /* Example: make h1 color match navbar green */
+    h1 span {
+      color: #32C06F;
     }
-    
-    h1 {
-        font-size: 2.2rem;
-    }
-    
-    .contact-info-horizontal {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .info-item {
-        width: 100%;
-        max-width: 100%;
-    }
-    
-    .form-row {
-        flex-direction: column;
-        gap: 0;
-    }
-    
-    .half-width {
-        width: 100%;
-    }
-}
-  .form-container {
-      background: #ffffff;
-      max-width: 550px;
-      margin: auto;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.08);
-    }
-
-    #offerBox {
-      margin-top: 25px;
-      padding: 15px;
-      background-color: #e6f4ea;
-      border-left: 5px solid #28a745;
-      display: none;
-      white-space: pre-wrap;
-    }
-    </style>
+  </style>
 </head>
 <body>
-   <!-- Top Header -->
+  <!-- Top Header -->
 <div class="top-header">
   <div class="container-fluid">
     <div class="row align-items-center justify-content-between">
@@ -374,163 +76,151 @@ footer {
     
 <a href="Add to cart.html" class="cart-wraper"> 
   <div class="cart-summary sticky-cart text-dark bg-white">
-    <h6>🛒 Cart (<span id="cart-count">0</span>)</h6>
-    <p>Total: Rs. <span id="cart-total">0</span></p>
+    <h6>🛒 Cart (<span class="cart-count">0</span>)</h6>
+    <p>Total: Rs. <span class="cart-total">0</span></p>
   </div>
 </a>
+
     </div>
 
-    <a href="Add to cart.html" class="cart-wrapper"> 
+   <a href="Add to cart.html" class="cart-wrapper"> 
   <div class="cart-summary sticky-cart text-dark bg-white">
-    <h6>🛒 Cart (<span id="cart-count">0</span>)</h6>
-    <p>Total: Rs. <span id="cart-total">0</span></p>
+    <h6>🛒 Cart (<span class="cart-count">0</span>)</h6>
+    <p>Total: Rs. <span class="cart-total">0</span></p>
   </div>
 </a>
-   
-
-
   </nav>
-    <div class="container">
-        <header>
-            <h1>Contact <span>Nepalium</span></h1>
-            <p class="subtitle">Get in touch with our team. We're here to answer your questions.</p>
-        </header>
-        
-        <div class="contact-info-horizontal">
-            <div class="info-item">
-                <div class="info-icon">
-                    <i class="fas fa-map-marker-alt"></i>
-                </div>
-                <div class="info-content">
-                    <h3>Our Office</h3>
-                    <p>Kathmandu Plaza, 3rd Floor<br>Durbar Marg, Kathmandu 44600<br>Nepal</p>
-                </div>
-            </div>
-            
-            <div class="info-item">
-                <div class="info-icon">
-                    <i class="fas fa-phone-alt"></i>
-                </div>
-                <div class="info-content">
-                    <h3>Call Us</h3>
-                    <p>+977 1-1234567<br>+977 9801234567</p>
-                </div>
-            </div>
+
+  <!-- Main Container -->
+  <div class="container my-5">
+    <header class="mb-4 text-center">
+      <h1>Contact <span>Nepalium</span></h1>
+      <p class="subtitle">Get in touch with our team. We're here to answer your questions.</p>
+    </header>
+
+    <!-- Contact Info Horizontal -->
+    <div class="d-flex flex-wrap justify-content-center gap-4 mb-5">
+      <div class="info-item d-flex align-items-start gap-3 p-3 border rounded" style="min-width: 280px; max-width: 400px;">
+        <div class="info-icon fs-4 text-success mt-1">
+          <i class="fas fa-map-marker-alt"></i>
         </div>
-        
-        <div class="contact-grid">
-            <div class="contact-card">
-                <div class="card-icon">
-                    <i class="fas fa-envelope"></i>
-                </div>
-                <h3 class="card-title">Email Us</h3>
-                <p class="card-content">
-                    info@nepalium.com<br>
-                    support@nepalium.com
-                </p>
-            </div>
-            
-            <div class="contact-card">
-                <div class="card-icon">
-                    <i class="fas fa-clock"></i>
-                </div>
-                <h3 class="card-title">Business Hours</h3>
-                <p class="card-content">
-                    Sun-Fri: 9AM - 5PM<br>
-                    Sat: Closed
-                </p>
-            </div>
+        <div>
+          <h3 class="text-success">Our Office</h3>
+          <p>Kathmandu Plaza, 3rd Floor<br>Durbar Marg, Kathmandu 44600<br>Nepal</p>
         </div>
-        
-        <div class="contact-form">
-            <h2 class="form-title">Send Us a Message at Nepalium</h2>
-            <form>
-                <div class="form-group">
-                    <label for="name">Your Name *</label>
-                    <input type="text" id="name" required>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group half-width">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" required>
-                    </div>
-                    
-                    <div class="form-group half-width">
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone">
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Your Message</label>
-                    <textarea id="message" required></textarea>
-                </div>
-                
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
+      </div>
+
+      <div class="info-item d-flex align-items-start gap-3 p-3 border rounded" style="min-width: 280px; max-width: 400px;">
+        <div class="info-icon fs-4 text-success mt-1">
+          <i class="fas fa-phone-alt"></i>
         </div>
+        <div>
+          <h3 class="text-success">Call Us</h3>
+          <p>+977 1-1234567<br>+977 9801234567</p>
+        </div>
+      </div>
     </div>
-    
-    <footer>
-        <div class="social-links">
-            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+
+    <!-- Contact Grid -->
+    <div class="row mb-5">
+      <div class="col-md-6 mb-4">
+        <div class="contact-card border rounded p-4 text-center h-100">
+          <div class="card-icon fs-2 text-success mb-3">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h3 class="card-title text-success mb-3">Email Us</h3>
+          <p>info@nepalium.com<br>support@nepalium.com</p>
         </div>
-    </footer>
-    <!-- Top Feature Strip -->
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <div class="contact-card border rounded p-4 text-center h-100">
+          <div class="card-icon fs-2 text-success mb-3">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h3 class="card-title text-success mb-3">Business Hours</h3>
+          <p>Sun - Sat: 24 Hour</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form border rounded p-4">
+      <h2 class="form-title text-center text-success mb-4">Send Us a Message at Nepalium</h2>
+      <form>
+        <div class="mb-3">
+          <label for="name" class="form-label">Your Name *</label>
+          <input type="text" id="name" class="form-control" required />
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="email" class="form-label">Email Address *</label>
+            <input type="email" id="email" class="form-control" required />
+          </div>
+
+          <div class="col-md-6">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="tel" id="phone" class="form-control" />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="subject" class="form-label">Subject</label>
+          <input type="text" id="subject" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="message" class="form-label">Your Message</label>
+          <textarea id="message" class="form-control" rows="5" required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn btn btn-outline-success d-block mx-auto px-4">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Top Feature Strip -->
   <div class="top-feature-strip">
     <div class="container feature-list">
       <div class="feature-item">
-        <img class="images" src="https://www.digitalsahuji.com/public/assets/front-end/png/delivery.png" alt="Fast Delivery" class="feature-icon"/>
+        <img class="images" src="delivery.png" alt="Fast Delivery" class="feature-icon"/>
         <p class="feature-text">Fast Delivery all<br>across the country</p>
       </div>
       <div class="feature-item">
-        <img class="images" src="https://www.digitalsahuji.com/public/assets/front-end/png/Payment.png" alt="Safe Payment" class="feature-icon" />
+        <img class="images" src="Payment.png" alt="Safe Payment" class="feature-icon" />
         <p class="feature-text">Safe Payment</p>
       </div>
       <div class="feature-item">
-        <img class="images" src="https://www.digitalsahuji.com/public/assets/front-end/png/money.png" alt="Return Policy" class="feature-icon" />
+        <img class="images" src="money.png" alt="Return Policy" class="feature-icon" />
         <p class="feature-text">7 Days Return Policy</p>
       </div>
       <div class="feature-item">
-        <img class="images" src="https://www.digitalsahuji.com/public/assets/front-end/png/Genuine.png" alt="Authentic Products" class="feature-icon" />
+        <img class="images" src="Genuine.png" alt="Authentic Products" class="feature-icon" />
         <p class="feature-text">100% Authentic Products</p>
       </div>
     </div>
-  </div>
-  <!-- Nepalium Daily Offers Section -->
-    <div class="form-container">
-    <h4 class="text-center text-success mb-4">Nepalium Daily Offers</h4>
-
-    <label for="nepaliDate" class="form-label">Select a Nepali Date:</label>
-    <input type="text" id="nepaliDate" class="form-control" placeholder="YYYY-MM-DD">
-
-    <div id="offerBox"></div>
   </div>
   <!-- Main Footer Section -->
   <footer class="footer">
     <div class="footer-grid">
       <div class="footer-column">
-        <div class="footer-title-large">NEPALIUM</div>
+        <div class="footer-title-large">
+          <img class="footer-logo" src="final nepalium white.png" alt="">
+        </div>
         <ul class="footer-list">
           <li class="footer-list-item"><a href="signin.html" class="footer-link">LOG IN</a></li>
           <li class="footer-list-item"><a href="signin.html" class="footer-link">SIGN IN</a></li>
         </ul>
       </div>
       <div class="footer-column">
-        <div class="footer-title">
+         <div class="footer-title">
           <a href="index.html">HOME</a></div>
         <ul class="footer-list">
           <li class="footer-list-item"><a href="contact.html" class="footer-link">Contact us</a></li>
-          <li class="footer-list-item"><a href="#" class="footer-link">OUR PRODUCTS</a></li>
+          <li class="footer-list-item"><a href="datepicker.html" class="footer-link">Date picker</a></li>
           <li class="footer-list-item"><a href="Services.html" class="footer-link">SERVICES</a></li>
           <li class="footer-list-item"><a href="Register.html" class="footer-link">REGISTER</a></li>
         </ul>
@@ -538,10 +228,10 @@ footer {
       <div class="footer-column">
         <div class="footer-title">ACCOUNTS AND SHIPPING INFO</div>
         <ul class="footer-list">
-          <li class="footer-list-item"><a href="#" class="footer-link">PROFILE INFO</a></li>
-          <li class="footer-list-item"><a href="#" class="footer-link">REFUND POLICY</a></li>
-          <li class="footer-list-item"><a href="#" class="footer-link">RETURN POLICY</a></li>
-          <li class="footer-list-item"><a href="#" class="footer-link">CANCELLATION POLICY</a></li>
+          <li class="footer-list-items"><a href="#" class="footer-link">PROFILE INFO</a></li>
+          <li class="footer-list-items"><a href="#" class="footer-link">REFUND POLICY</a></li>
+          <li class="footer-list-items"><a href="#" class="footer-link">RETURN POLICY</a></li>
+          <li class="footer-list-items"><a href="#" class="footer-link">CANCELLATION POLICY</a></li>
         </ul>
       </div>
       <div class="footer-column">
@@ -549,7 +239,7 @@ footer {
         <div class="payment-logos">
           <img class="imags" src="https://www.setoghar.com/wp-content/uploads/2024/01/esewa-vs-khalti-digital-wallet-in-nepal.webp" alt="eSewa" class="payment-logo">
         
-          <img class="imags" src="https://www.nepaloffers.com/public/offer/2E8D059B912CD6F-fonepay.png" alt="Fonepay" class="payment-logo">
+          
         </div>
       </div>
     </div>
@@ -564,50 +254,9 @@ footer {
 </div>
 
     </div>
-     <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <!-- Nepali Date Picker -->
-  <script src="https://unpkg.com/nepali-datepicker-reactjs@4.0.6/dist/index.umd.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/nepali-date@1.1.0/nepali-date.min.js"></script>
-<script>
-    const offers = {
-      "2081-01-01": "🎉 New Year Offer: Get 20% off on all fresh fruits!",
-      "2081-01-10": "🥦 Organic Week: Buy 2 organic veggies, get 1 free!",
-      "2081-02-01": "🛒 Super Savings Day: Flat Rs.100 off on orders over Rs.1000.",
-      "2081-03-05": "📦 Free Delivery Day: No delivery charges all day!",
-      "2081-04-15": "🥭 Mango Festival: 15% off on all mango varieties.",
-      "2081-05-10": "🍅 Tomato Tuesday: Buy 1 kg, get 500g free.",
-      "2081-06-20": "🌽 Corn Carnival: Flat 10% off on sweet corn & maize.",
-      "2081-07-25": "🍇 Berry Bonanza: Special discounts on berries!",
-      "2081-08-30": "🧄 Garlic Sale: Save Rs.30 per kg today only!",
-      "2081-09-10": "🎊 Dashain Dhamaka: Up to 40% off on seasonal produce.",
-      "2081-10-15": "✨ Tihar Special: Buy 1 flower basket, get 1 free.",
-      "2081-11-05": "🌾 Farmer's Support Day: 5% of today's sale supports local farmers.",
-      "2081-12-30": "🎁 Year-End Sale: Free surprise gift with every order!"
-    };
 
-    $(document).ready(function () {
-      // Initialize Nepali Date Picker
-      $('#nepaliDate').nepaliDatePicker({
-        ndpYear: true,
-        ndpMonth: true,
-        ndpYearCount: 100,
-        dateFormat: "YYYY-MM-DD"
-      });
-
-      // Event when date is selected
-      $('#nepaliDate').on('change', function () {
-        const selectedDate = $(this).val();
-        const message = offers[selectedDate];
-
-        if (message) {
-          $('#offerBox').html(`<strong>${selectedDate} Offer:</strong>\n${message}`).slideDown();
-        } else {
-          $('#offerBox').html(`<strong>${selectedDate}:</strong>\nNo special offer available today.`).slideDown();
-        }
-      });
-    });
-  </script>
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -37,9 +37,19 @@ display: flex;
     .cart-wrapper{
       display: none;
     }
-   .swiper {
-    height: 300px !important;
-   }
+ .customSwiper .button-container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+   
+  
+.customSwiper{
+  height: 500px !important;
+}
 }
 @media  (max-width: 500px ){
   .cart-wrapper {

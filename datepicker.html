@@ -1,34 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Select Delivery Date</title>
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEPALIUM</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
     rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="icon" type="image/png" href="nepalium green final.png">
+
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="responsive.css" />
-  <style>
-   
-
-    .container {
-      max-width: 700px;
-      background: #fff;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    }
-
-    .message-box {
-      margin-top: 20px;
-      display: none;
-    }
-  </style>
 </head>
+
 <body>
+  
    <!-- Top Header -->
 <div class="top-header">
   <div class="container-fluid">
@@ -45,77 +35,57 @@
   </div>
 </div>
 
-
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-custom">
-    <div class="container-fluid d-flex align-items-center justify-content-between">
-      <!-- Left: Logo -->
-      <a class="navbar-brand me-3" href="#">
-        <img src="logo.jpg" alt="Logo" />
-      </a>
-
-      <!-- Center: Search -->
-      <div class="search-container mx-auto d-none d-lg-block">
-        <input type="text" placeholder="Search products..." />
-      </div>
-
-      <!-- Right: Nav + Cart -->
-      <div class="d-flex align-items-center">
-        <!-- Nav Items -->
-        <div class="collapse navbar-collapse desktop-only">
-          <ul class="navbar-nav me-3 mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="Gallery.html">Gallery</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="Services.html">Services</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="signin.html">Sign In</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="Register.html">Register</a></li>
-          </ul>
-        </div>
-
-        <!-- Desktop Cart -->
-        <a href="Add to cart.html" class="text-decoration-none desktop-only">
-          <div class="cart-summary">
-            <h6>🛒 Cart (<span id="cart-count">0</span>)</h6>
-            <p>Total: Rs. <span id="cart-total">0</span></p>
-          </div>
-        </a>
-
-        <!-- Mobile Toggle -->
-        <button class="navbar-toggler ms-2 d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-          aria-controls="offcanvasNavbar">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Mobile Search + Cart (only shown in small screens) -->
-  <div class="mobile-extra">
-    <input type="text" placeholder="Search products..." />
-    <a href="Add to cart.html" class="text-decoration-none">
-      <div class="cart-summary">
-        <h6>🛒 Cart (<span id="cart-count">0</span>)</h6>
-        <p>Total: Rs. <span id="cart-total">0</span></p>
-      </div>
+  <!-- Navbar Section -->
+  <nav class="navbar-custom navbar navbar-expand-lg">
+    <a class="navbar-brand" href="#">
+      <img class="logo" src="final nepalium white.png" alt="Logo">
     </a>
-  </div>
+    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Search Bar -->
+  <div class="search-container">
+  <input type="text" id="searchBar" placeholder="Search products..." />
+  <div id="suggestions" class="suggestions-box"></div>
+</div>
 
-  <!-- Offcanvas Menu -->
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="Gallery.html">Gallery</a></li>
-        <li class="nav-item"><a class="nav-link" href="Services.html">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="signin.html">Sign In</a></li>
-        <li class="nav-item"><a class="nav-link" href="Register.html">Register</a></li>
-      </ul>
-    </div>
+    
+
+   <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+        <div class="search-con">
+  <input type="text" id="searchBar" placeholder="Search products..." />
+  <div id="suggestions" class="suggestions-box"></div>
+</div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="Gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="Services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="signin.html">Sign In</a></li>
+        </ul>
+      </div>
+    
+<a href="Add to cart.html" class="cart-wraper"> 
+  <div class="cart-summary sticky-cart text-dark bg-white">
+    <h6>🛒 Cart (<span class="cart-count">0</span>)</h6>
+    <p>Total: Rs. <span class="cart-total">0</span></p>
   </div>
+</a>
+
+    </div>
+
+   <a href="Add to cart.html" class="cart-wrapper"> 
+  <div class="cart-summary sticky-cart text-dark bg-white">
+    <h6>🛒 Cart (<span class="cart-count">0</span>)</h6>
+    <p>Total: Rs. <span class="cart-total">0</span></p>
+  </div>
+</a>
+  </nav>
+  
     <!-- Swiper Slider -->
   <div class="swiper mySwiper">
     <div class="swiper-wrapper">
@@ -155,7 +125,8 @@
       Let’s build a better future for Nepali agriculture. <br> Explore. Connect. Empower.
     </p>
   </div>
-<div class="container">
+  <!-- Delivery Date Picker Section -->
+  <div class="container">
   <h3 class="text-success text-center mb-4">📦 Select Your Delivery Date</h3>
 
   <form id="deliveryForm">
@@ -180,12 +151,37 @@
     <div id="appointmentsContainer"></div>
   </div>
 </div>
+  
 
+
+<!-- Top Feature Strip -->
+  <div class="top-feature-strip">
+    <div class="container feature-list">
+      <div class="feature-item">
+        <img class="images" src="delivery.png" alt="Fast Delivery" class="feature-icon"/>
+        <p class="feature-text">Fast Delivery all<br>across the country</p>
+      </div>
+      <div class="feature-item">
+        <img class="images" src="Payment.png" alt="Safe Payment" class="feature-icon" />
+        <p class="feature-text">Safe Payment</p>
+      </div>
+      <div class="feature-item">
+        <img class="images" src="money.png" alt="Return Policy" class="feature-icon" />
+        <p class="feature-text">7 Days Return Policy</p>
+      </div>
+      <div class="feature-item">
+        <img class="images" src="Genuine.png" alt="Authentic Products" class="feature-icon" />
+        <p class="feature-text">100% Authentic Products</p>
+      </div>
+    </div>
+  </div>
   <!-- Main Footer Section -->
   <footer class="footer">
     <div class="footer-grid">
       <div class="footer-column">
-        <div class="footer-title-large">NEPALIUM</div>
+        <div class="footer-title-large">
+          <img class="footer-logo" src="final nepalium white.png" alt="">
+        </div>
         <ul class="footer-list">
           <li class="footer-list-item"><a href="signin.html" class="footer-link">LOG IN</a></li>
           <li class="footer-list-item"><a href="signin.html" class="footer-link">SIGN IN</a></li>
@@ -229,7 +225,7 @@
         <a href="#" class="footer-bottom-link">Privacy Policy</a>
 </div>
 
-    </div>  
+    </div>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -237,7 +233,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="script.js"></script>
-<script>
+  <script>
   const appointments = [];
 
   document.getElementById('date').addEventListener('click', () => {
@@ -284,4 +280,5 @@
 </script>
 
 </body>
+
 </html>
