@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Nepalium - Login</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="nepalium green final.png">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="nepalium green final.png" />
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-    * {
-      margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
     body {
       display: flex; justify-content: center; align-items: center;
       min-height: 100vh; background: #000; position: relative; overflow: hidden;
@@ -111,7 +108,7 @@
   <div class="login-container">
     <div class="brand-logo">
       <h1 style="color: rgb(38, 248, 5);">
-        <img width="100%" src="final nepalium white.png" alt="">
+        <img width="100%" src="final nepalium white.png" alt="Nepalium Logo" />
       </h1>
     </div>
 
@@ -120,23 +117,23 @@
 
       <div class="input-group">
         <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
-        <input type="email" id="email" required>
+        <input type="email" id="email" required />
         <label>Email Address</label>
       </div>
 
       <div class="input-group">
         <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
-        <input type="password" id="password" required>
+        <input type="password" id="password" required />
         <label>Password</label>
       </div>
 
       <div class="form-options">
         <div class="remember-me">
-          <input type="checkbox" id="remember">
+          <input type="checkbox" id="remember" />
           <label for="remember">Remember me</label>
         </div>
         <div class="forgot-password">
-          <a href="#">Forgot password?</a>
+          <a href="#" id="forgotPasswordLink">Forgot password?</a>
         </div>
       </div>
 
@@ -149,26 +146,68 @@
   </div>
 
   <script>
-    const form = document.getElementById('loginForm');
+    const form = document.getElementById("loginForm");
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault(); // Prevent form from submitting
-
-      const email = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value.trim();
-
-      // ✅ Define correct credentials
-      const validEmail = "saradpandey2004@gmail.com";
-      const validPassword = "nepal123";
-      
-
-      // ✅ Check credentials
-      if (email === validEmail && password === validPassword) {
-        alert("Login successful!");
-        window.location.href = "index.html"; // Redirect to homepage
-      } else {
-        alert("❌ Invalid email or password.");
+    // ✅ Forgot password with OTP simulation
+    document.getElementById("forgotPasswordLink").addEventListener("click", function (e) {
+      e.preventDefault();
+      const email = prompt("📧 Enter your registered email:");
+      if (!email) {
+        alert("❗ Email is required.");
+        return;
       }
+
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+      const user = users.find((u) => u.email === email.toLowerCase());
+
+      if (!user) {
+        alert("❌ Email not found. Please register.");
+        return;
+      }
+
+      // ✅ Generate OTP
+      const generatedOTP = Math.floor(100000 + Math.random() * 900000);
+      alert(`📨 OTP sent to your email (simulated): ${generatedOTP}`);
+
+      const enteredOTP = prompt("🔐 Enter the OTP you received:");
+      if (enteredOTP == null || enteredOTP != generatedOTP) {
+        alert("❌ Invalid OTP.");
+        return;
+      }
+
+      alert(`✅ OTP Verified!\nYour password is: ${user.password}`);
+    });
+
+    // ✅ Login functionality
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value.trim().toLowerCase();
+      const password = document.getElementById("password").value.trim();
+
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+      const user = users.find((user) => user.email === email);
+
+      if (!user) {
+        alert("❌ User not found. Please register.");
+        return;
+      }
+
+      if (user.password !== password) {
+        alert("❌ Incorrect password.");
+        return;
+      }
+
+      alert("✅ Login successful!");
+
+      // Store login session
+      if (document.getElementById("remember").checked) {
+        localStorage.setItem("loggedInUser", JSON.stringify(user));
+      } else {
+        sessionStorage.setItem("loggedInUser", JSON.stringify(user));
+      }
+
+      window.location.href = "index.html";
     });
   </script>
 </body>

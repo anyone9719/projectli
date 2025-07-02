@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Nepalium - Forgot Password</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #000; color: white;
+      display: flex; align-items: center; justify-content: center;
+      height: 100vh; margin: 0;
+    }
+    .box {
+      background: rgba(19, 200, 94, 0.9);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      width: 350px;
+    }
+    h2 {
+      text-align: center; margin-bottom: 25px;
+    }
+    input {
+      width: 100%; padding: 10px; margin: 10px 0;
+      border: none; border-bottom: 2px solid white;
+      background: transparent; color: white;
+      font-size: 1em; outline: none;
+    }
+    button {
+      width: 100%; padding: 12px;
+      background: white; color: black;
+      border: none; border-radius: 25px;
+      font-weight: bold; cursor: pointer; transition: 0.3s;
+    }
+    button:hover {
+      background: #0f0; color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h2>Forgot Password</h2>
+    <form id="forgotForm">
+      <input type="email" id="email" placeholder="Enter your email" required />
+      <input type="tel" id="phone" placeholder="Enter your phone number" required />
+      <button type="submit">Send OTP</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("forgotForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+
+      if (!email || !phone) {
+        alert("Please enter email and phone.");
+        return;
+      }
+
+      // Send request to backend
+      try {
+        const res = await fetch("http://localhost:5000/send-otp", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, phone })
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+          alert("✅ OTP has been sent to your email and phone.");
+          // Redirect to OTP verification page (optional)
+          window.location.href = "verify-otp.html";
+        } else {
+          alert("❌ " + data.message);
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Server error. Try again later.");
+      }
+    });
+  </script>
+
+</body>
+</html>

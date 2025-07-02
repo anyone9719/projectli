@@ -1,232 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Nepalium Registration</title>
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Nepali Date Picker CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nepali-datepicker@2.2.0/nepali.datepicker.min.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="responsive.css" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     body {
-      background-color: #f4f8f7;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
     }
 
-    .registration-form {
-      max-width: 500px;
-      margin: 60px auto;
-      padding: 30px;
-      background-color: #fff;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    .register-box {
+      background: #27ae60;
+      border-radius: 25px;
+      padding: 40px 35px;
+      width: 100%;
+      max-width: 550px;
+      color: #fff;
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
     }
 
-    .registration-form h3 {
+    .register-box h2 {
       text-align: center;
-      color: #28a745;
+      font-weight: 600;
       margin-bottom: 30px;
+      color: #fff;
+    }
+
+    .form-floating > .form-control {
+      background-color: #2ecc71;
+      border: none;
+      color: #fff;
+      padding-left: 15px;
+    }
+
+    .form-floating > .form-control::placeholder {
+      color: transparent;
+    }
+
+    .form-floating > label {
+      color: #e6ffe8;
+      padding-left: 15px;
     }
 
     .form-control:focus {
-      border-color: #28a745;
-      box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+      background-color: #2ecc71;
+      color: #fff;
+      box-shadow: 0 0 0 0.15rem rgba(255, 255, 255, 0.25);
     }
 
-    .btn-success {
-      background-color: #28a745;
-      border-color: #28a745;
+    .btn-register {
+      background: #fff;
+      color: #27ae60;
+      font-weight: bold;
+      border-radius: 25px;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      margin-top: 15px;
     }
 
-    .btn-success:hover {
-      background-color: #218838;
-      border-color: #1e7e34;
+    .btn-register:hover {
+      background: #d5ffeb;
+      color: #219150;
+    }
+
+    .bottom-text {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .bottom-text a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    #messageBox {
+      display: none;
     }
   </style>
 </head>
 <body>
-   <!-- Top Header -->
-<div class="top-header">
-  <div class="container-fluid">
-    <div class="row align-items-center justify-content-between">
-      <div class="col-auto">
-        <a href="tel:9749781949"><i class="bi bi-telephone-fill"></i> 9749781949</a>
-      </div>
-      <div class="col-auto social-media d-flex">
-        <a href="#"><i class="bi bi-facebook"></i></a>
-        <a href="#"><i class="bi bi-youtube"></i></a>
-        <a href="#"><i class="bi bi-instagram"></i></a>
-      </div>
-    </div>
-  </div>
-</div>
 
-  <!-- Navbar Section -->
-  <nav class="navbar-custom navbar navbar-expand-lg">
-    <a class="navbar-brand" href="#">
-      <img class="logo" src="final nepalium white.png" alt="Logo">
-    </a>
-    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <!-- Search Bar -->
-  <div class="search-container">
-  <input type="text" id="searchBar" placeholder="Search products..." />
-  <div id="suggestions" class="suggestions-box"></div>
-</div>
-
-    
-
-   <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-        <div class="search-con">
-  <input type="text" id="searchBar" placeholder="Search products..." />
-  <div id="suggestions" class="suggestions-box"></div>
-</div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="Gallery.html">Gallery</a></li>
-          <li class="nav-item"><a class="nav-link" href="Services.html">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="signin.html">Sign In</a></li>
-        </ul>
-      </div>
-    
-<a href="Add to cart.html" class="cart-wraper"> 
-  <div class="cart-summary sticky-cart text-dark bg-white">
-    <h6>🛒 Cart (<span id="cart-count">0</span>)</h6>
-    <p>Total: Rs. <span id="cart-total">0</span></p>
-  </div>
-</a>
+<div class="register-box">
+  <img width="100%"  src="final nepalium white.png" alt="">
+  <br>
+  <br>
+  
+  <h2>User Registration</h2>
+  <form id="registerForm">
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="fullName" placeholder="Full Name" required />
+      <label for="fullName">Full Name</label>
     </div>
 
-    <a href="Add to cart.html" class="cart-wrapper"> 
-  <div class="cart-summary sticky-cart text-dark bg-white">
-    <h6>🛒 Cart (<span id="cart-count">0</span>)</h6>
-    <p>Total: Rs. <span id="cart-total">0</span></p>
-  </div>
-</a>
-   
-
-
-  </nav>
-  <div class="container">
-    <div class="registration-form">
-      <h3>Nepalium Registration</h3>
-      <form action="https://formsubmit.co/saradpandey2004@gmail.com" method="POST">
-        <!-- Hidden fields for redirect and spam protection -->
-        <input type="hidden" name="_next" value="index.html">
-        <input type="hidden" name="_captcha" value="false">
-
-        <div class="mb-3">
-          <label for="fullName" class="form-label">Full Name</label>
-          <input type="text" name="Full Name" class="form-control" id="fullName" placeholder="Enter your full name" required>
-        </div>
-
-        <div class="mb-3">
-          <label for="email" class="form-label">Email Address</label>
-          <input type="email" name="Email" class="form-control" id="email" placeholder="Enter email" required>
-        </div>
-
-        <div class="mb-3">
-          <label for="nepaliDOB" class="form-label">Date of Birth (B.S.)</label>
-          <input type="text" name="Date of Birth (B.S.)" class="form-control" id="nepaliDOB" placeholder="Select Nepali date" required>
-        </div>
-
-        <div class="mb-3">
-          <label for="address" class="form-label">Address</label>
-          <input type="text" name="Address" class="form-control" id="address" placeholder="Enter your address" required>
-        </div>
-
-        <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
-          <input type="password" name="Password" class="form-control" id="password" placeholder="Create a password" required>
-        </div>
-
-        <button type="submit" class="btn btn-success w-100">Register</button>
-      </form>
+    <div class="form-floating mb-3">
+      <input type="email" class="form-control" id="email" placeholder="Email" required />
+      <label for="email">Email Address</label>
     </div>
-  </div>
 
- <!-- Main Footer Section -->
-  <footer class="footer">
-    <div class="footer-grid">
-      <div class="footer-column">
-        <div class="footer-title-large">
-          <img class="footer-logo" src="final nepalium white.png" alt="">
-        </div>
-        <ul class="footer-list">
-          <li class="footer-list-item"><a href="signin.html" class="footer-link">LOG IN</a></li>
-          <li class="footer-list-item"><a href="signin.html" class="footer-link">SIGN IN</a></li>
-        </ul>
-      </div>
-      <div class="footer-column">
-         <div class="footer-title">
-          <a href="index.html">HOME</a></div>
-        <ul class="footer-list">
-          <li class="footer-list-item"><a href="contact.html" class="footer-link">Contact us</a></li>
-          <li class="footer-list-item"><a href="datepicker.html" class="footer-link">Date picker</a></li>
-          <li class="footer-list-item"><a href="Services.html" class="footer-link">SERVICES</a></li>
-          <li class="footer-list-item"><a href="Register.html" class="footer-link">REGISTER</a></li>
-        </ul>
-      </div>
-      <div class="footer-column">
-        <div class="footer-title">ACCOUNTS AND SHIPPING INFO</div>
-        <ul class="footer-list">
-          <li class="footer-list-items"><a href="#" class="footer-link">PROFILE INFO</a></li>
-          <li class="footer-list-items"><a href="#" class="footer-link">REFUND POLICY</a></li>
-          <li class="footer-list-items"><a href="#" class="footer-link">RETURN POLICY</a></li>
-          <li class="footer-list-items"><a href="#" class="footer-link">CANCELLATION POLICY</a></li>
-        </ul>
-      </div>
-      <div class="footer-column">
-        <div class="footer-title">WE ACCEPTS</div>
-        <div class="payment-logos">
-          <img class="imags" src="https://www.setoghar.com/wp-content/uploads/2024/01/esewa-vs-khalti-digital-wallet-in-nepal.webp" alt="eSewa" class="payment-logo">
-        
-          
-        </div>
-      </div>
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="addressTemporary" placeholder="Temporary Address" required />
+      <label for="addressTemporary">Temporary Address</label>
     </div>
-  </footer>
-<div class="footer-bottom">
-<div class="col-lg-6">
-  <p class="footer-bottom-text">CopyRight NEPALIUM © 2025</p>
-</div>
-<div class="col-lg-6 fotter-link">
-    <a href="#" class="footer-bottom-link">Terms & Conditions</a>
-        <a href="#" class="footer-bottom-link">Privacy Policy</a>
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="addressPermanent" placeholder="Permanent Address" required />
+      <label for="addressPermanent">Permanent Address</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="tel" class="form-control" id="mobileNumber" placeholder="Mobile Number" pattern="[0-9]{10}" required />
+      <label for="mobileNumber">Mobile Number</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="date" class="form-control" id="dob" placeholder="Date of Birth" required />
+      <label for="dob">Date of Birth</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <select class="form-select" id="userType" required>
+        <option value="" disabled selected>Select user type</option>
+        <option value="Farmer">Farmer</option>
+        <option value="Customer">Customer</option>
+      </select>
+      <label for="userType">Register As</label>
+    </div>
+
+    <div class="form-floating mb-3" id="messageBox">
+      <input type="text" class="form-control" id="farmerMessage" placeholder="Message (for Farmers only)" />
+      <label for="farmerMessage">Message (for Farmers only)</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="password" class="form-control" id="password" placeholder="Password" required />
+      <label for="password">Password</label>
+    </div>
+
+    <button type="submit" class="btn btn-register">REGISTER</button>
+
+    <div class="bottom-text">
+      Already have an account? <a href="signin.html">Sign in here</a>
+    </div>
+  </form>
 </div>
 
-    </div>
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  // Show/hide message input for Farmers
+  document.getElementById("userType").addEventListener("change", function () {
+    const messageInput = document.getElementById("messageBox");
+    messageInput.style.display = this.value === "Farmer" ? "block" : "none";
+  });
 
-  <!-- Nepali Date Picker JS -->
-  <script src="https://cdn.jsdelivr.net/npm/nepali-datepicker@2.2.0/nepali.datepicker.min.js"></script>
-
-  <!-- Initialize Nepali Date Picker -->
-  <script>
-    window.onload = function () {
-      document.getElementById("nepaliDOB").nepaliDatePicker({
-        ndpYear: true,
-        ndpMonth: true,
-        ndpYearCount: 100
-      });
-    };
-  </script>
+  document.getElementById("registerForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    alert("✅ Registration Successful!");
+    window.location.href = "signin.html";
+  });
+</script>
 
 </body>
 </html>
