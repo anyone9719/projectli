@@ -52,6 +52,7 @@ display: flex;
 }
 }
 @media  (max-width: 500px ){
+ 
   .cart-wrapper {
     margin-top: 20px;
   }
@@ -199,8 +200,9 @@ display: flex;
     padding: 0 5px;
   }
 
+
   .image-main-products {
-    height: 160px;
+    height: 140px;
   }
   
   .search-con{
