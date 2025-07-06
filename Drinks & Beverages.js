@@ -1,17 +1,21 @@
+
 const products = {
+ 
   "drinks-list": [
-    { id: 1, name: 'Mango Juice', price: 150, img: 'https://t3.ftcdn.net/jpg/01/87/65/02/360_F_187650225_yiZwjK4HjPVxlD8npzCRUuaoodF39Kby.jpg' },
-    { id: 2, name: 'Lemon Water', price: 80, img: 'https://igan.org/wp-content/uploads/2024/04/lemon-cucumber-water.jpeg' },
-    { id: 3, name: 'Coconut Water', price: 90, img: 'https://rebel-kitchen.com/cdn/shop/files/coconut-water-750ml-lifestyle-1500x.jpg?v=1744030655&width=1445' },
-    { id: 4, name: 'Herbal Juice', price: 200, img: 'https://img.drz.lazcdn.com/g/kf/Se56c7fd741bc48bdb4f7f0d3c4a56795G.jpg_720x720q80.jpg' },
-    { id: 5, name: 'Orange Juice', price: 140, img: 'https://images.herzindagi.info/image/2020/Nov/orange-juice-for-health.jpg' },
-    { id: 6, name: 'Soft Drink', price: 130, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1nmnmp8dbLE74xW5scabuI4MFOOpWUr3yrQ&s' },
-    { id: 7, name: 'Butter Milk', price: 70, img: 'https://images.unsplash.com/photo-1630409346699-79481a79db52?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnV0dGVybWlsa3xlbnwwfHwwfHx8MA%3D%3D' },
-    { id: 8, name: 'HinwButter Milka Wine', price: 550, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp754JpiM8GC-iVEZyhTgAjP74CvBGOu22hOooKC-zyNDy97ioeQMnPjTjfmAF2fQWIbk&usqp=CAU' },
-    { id: 9, name: 'Dadaghare Wine', price: 600, img: 'https://nba-english-bucket.s3.ap-south-1.amazonaws.com/img/news/20160905042435_dada.jpg' },
-    { id: 10, name: 'Marpha Apple Wine', price: 650, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR4cRu5MJpdVfpZ46Bzxh0BAn_qic8gnhBbA&s' }
-  ]
+  { name: 'Tongba (Hot Millet Beer)', price: 150, img: 'https://nepyork.com/wp-content/uploads/2023/02/Tongba.jpg' },
+  { name: 'Chhaang (Himalayan Rice Beer)', price: 80, img: 'https://assets-cdn.kathmandupost.com/uploads/source/news/2020/lifestyle/6-(3).jpg' },
+  { name: 'Marpha Apple juice ', price: 90, img: 'https://i.pinimg.com/736x/97/da/b6/97dab6986c27602210cf587336d4ba46.jpg' },
+  { name: 'Walnut Milk', price: 200, img: 'https://i.pinimg.com/736x/dd/4d/be/dd4dbea1adb69b90694f484a546f97dd.jpg' },
+  { name: 'Junar Juice', price: 140, img: 'https://i.pinimg.com/736x/e5/21/f6/e521f6d4f27b55146b84e2bbf5148b5c.jpg' },
+  { name: 'Sugarcane Sugar Tea', price: 130, img: 'https://i.pinimg.com/736x/f0/c9/e6/f0c9e6a15fc597a49251643751ee7a70.jpg' },
+  { name: 'Grape Wine', price: 70, img: 'https://i.pinimg.com/736x/74/bd/c7/74bdc788f308509d5a5ad6c8716359b1.jpg' },
+  { name: 'Vodka', price: 550, img: 'https://cdn11.bigcommerce.com/s-tgrcca6nho/images/stencil/1280x1280/products/22162/46259/8848-vodka__82679.1749291995.jpg?c=1' },
+  { name: 'Soft Drinks', price: 600, img: 'https://i.pinimg.com/736x/7a/1c/cd/7a1ccd6b55961ad7fc80efbc627074e5.jpg' },
+  { name: 'Beer', price: 650, img: 'https://nutsaboutwine.ie/wp-content/uploads/2020/11/tuborg.jpg' }
+]
 };
+let cartCount = 0;
+let cartTotal = 0;
 
 function renderProducts(highlight = "") {
   let targetElement = null;
@@ -39,7 +43,7 @@ function renderProducts(highlight = "") {
               <i class="bi bi-star"></i>
               <i class="bi bi-star"></i>
             </div>
-            <button class="btn btn-primary mb-2 w-100" onclick="addToCart(${product.id})">Add to Cart</button>
+            <button class="btn btn-primary mb-2 w-100" onclick="addToCart(${product.price})">Add to Cart</button>
             <button class="btn btn-success w-100">Buy Now</button>
           </div>
         </div>
@@ -57,36 +61,13 @@ function renderProducts(highlight = "") {
   }
 }
 
-function addToCart(productId) {
-  const allProducts = Object.values(products).flat();
-  const product = allProducts.find(p => p.id === productId);
-  if (!product) return;
-
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-  const existingItem = cart.find(item => item.id === productId);
-
-  if (existingItem) {
-    existingItem.quantity += 1;
-  } else {
-    cart.push({ ...product, quantity: 1 });
-  }
-
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartSummary();
+function addToCart(price) {
+  cartCount++;
+  cartTotal += price;
+  document.getElementById('cart-count').textContent = cartCount;
+  document.getElementById('cart-total').textContent = cartTotal;
 }
 
-function updateCartSummary() {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-  const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-
-  document.querySelectorAll(".cart-count").forEach(el => el.textContent = totalCount);
-  document.querySelectorAll(".cart-total").forEach(el => el.textContent = totalPrice);
-}
-
-// Search Suggestion System
 const searchBar = document.getElementById('searchBar');
 const suggestionsBox = document.getElementById('suggestions');
 
@@ -125,8 +106,4 @@ searchBar.addEventListener('input', function () {
   suggestionsBox.style.display = 'block';
 });
 
-// Load products and cart count on page load
-window.addEventListener("load", () => {
-  renderProducts();
-  updateCartSummary();
-});
+renderProducts();

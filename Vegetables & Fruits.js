@@ -1,23 +1,26 @@
 const products = {
 
  "vegetables-fruits-list": [
-  { name: 'Tomato', price: 40, img: 'https://www.almanac.com/sites/default/files/users/The%20Editors/tomatoes_ozgurdonmaz_gettyimages-edit_full_width.jpeg' },
-  { name: 'Carrot', price: 60, img: 'https://images.unsplash.com/photo-1633380110125-f6e685676160?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGNhcnJvdHxlbnwwfHwwfHx8MA%3D%3D' },
-  { name: 'Potato', price: 30, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVWt2bG1fRw0fFxQLM39GoCH0hkXfVO9uA2w&s' },
-  { name: 'Apple', price: 120, img: 'https://www.earth.com/assets/_next/image/?url=https%3A%2F%2Fcff2.earth.com%2Fuploads%2F2019%2F06%2F19132041%2FHow-the-apple-became-such-a-ubiquitous-iconic-fruit-across-the-globe-1400x850.jpg&w=1200&q=75' },
-  { name: 'Banana', price: 80, img: 'https://thumbs.dreamstime.com/b/banana-bunch-hanging-palm-tree-ai-generative-design-background-instagram-facebook-wall-painting-art-backgrounds-wallpaper-325270238.jpg' },
-  { name: 'Cucumber', price: 50, img: 'https://www.shutterstock.com/image-photo/organic-cucumbers-cultivation-closeup-fresh-600nw-2463149627.jpg' },
-  { name: 'Mango', price: 150, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx2tmzH9WS5HbdC5j-sEBuEe5S6Nar9OEDwQ&s' },
-  { name: 'Orange', price: 100, img: 'https://i.pinimg.com/736x/61/23/e1/6123e1e54a33de953797718103887089.jpg' },
-  { name: 'Onion', price: 70, img: 'https://t3.ftcdn.net/jpg/09/54/54/88/360_F_954548899_M6D9TLhN9G1FkwUHEX78NAUp33LRImdf.jpg' },
-  { name: 'Pineapple', price: 130, img: 'https://cdn.mos.cms.futurecdn.net/D2buHfHJAu9EmxPbEcmUT5.jpg' },
-  { name: 'Spinach', price: 45, img: 'https://www.trustbasket.com/cdn/shop/articles/Spinach.webp?v=1686909241' },
-  { name: 'Broccoli', price: 90, img: 'https://www.health.com/thmb/gX-_Nn-CquRW2-2xXjnlqsRPg6s=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/TypesOfBroccoli-6dd837ebc29047889872aeeb175a3646.jpg' }
+  { name: 'Kafal(Bayberry)', price: 40, img: 'https://i.pinimg.com/736x/e2/c9/c8/e2c9c883a0b93d927023434a4330e9b2.jpg' },
+  { name: 'Aiselu(Himalayan Raspberry)', price: 60, img: 'https://i.pinimg.com/736x/2b/24/66/2b2466fcb3432e40cb3e58e0a1b5748b.jpg' },
+  { name: 'Haluwabed(Persimmon)', price: 30, img: 'https://i.pinimg.com/736x/4b/e8/c6/4be8c679c1721dc02fc12f543aee7f5f.jpg' },
+  { name: 'Sitafal(Custard Apple', price: 120, img: 'https://i.pinimg.com/736x/72/e4/20/72e420d88713ec6147e4e0148395ea61.jpg' },
+  { name: 'Bhogate (Pomelo – Citrus maxima', price: 80, img: 'https://i.pinimg.com/736x/bf/18/05/bf1805fcbbe1aba499229216952c47c4.jpg' },
+  { name: 'Koirala ko phool(Mountain Ebony)', price: 50, img: 'https://i.pinimg.com/736x/08/76/e8/0876e871a4ee0b569afaa83bbdc69076.jpg' },
+  { name: 'Gundruk', price: 150, img: 'https://i.pinimg.com/736x/b0/98/86/b09886fd2d6ea5edfccff712b7edefae.jpg' },
+  { name: 'Yam', price: 100, img: 'https://i.pinimg.com/736x/52/a5/a3/52a5a37cc71b0ffe9ab95a4969209459.jpg' },
+  { name: 'Pumpkin Shoots', price: 70, img: 'https://i.pinimg.com/736x/56/bd/51/56bd514ef96842a9bd9972f3e8c1fb02.jpg' },
+  { name: 'Chayote(Iskus)', price: 130, img: 'https://i.pinimg.com/736x/20/79/31/2079314e5274689e49047372729af47d.jpg' },
+  { name: 'Bamboo shoots(Tama)', price: 45, img: 'https://i.pinimg.com/736x/95/cc/cb/95cccb28b24d4ecd40abfe0ef6b91ec1.jpg' },
+  { name: 'Wild Mushroom ', price: 90, img: 'https://i.pinimg.com/736x/e7/de/e9/e7dee9b9e28febab3cb2ae0d2388d271.jpg' }
 ]
 
  
 };
 
+
+let cartCount = 0;
+let cartTotal = 0;
 
 function renderProducts(highlight = "") {
   let targetElement = null;
@@ -39,13 +42,9 @@ function renderProducts(highlight = "") {
             <h5 class="card-title ${highlightClass}">${product.name}</h5>
             <p class="card-text ${highlightClass}">Rs. ${product.price}</p>
             <div class="stars mb-3">
-              <i class="bi bi-star"></i>
-              <i class="bi bi-star"></i>
-              <i class="bi bi-star"></i>
-              <i class="bi bi-star"></i>
-              <i class="bi bi-star"></i>
+              <i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
             </div>
-            <button class="btn btn-primary mb-2 w-100" onclick="addToCart(${product.id})">Add to Cart</button>
+            <button class="btn btn-primary mb-2 w-100" onclick="addToCart(${product.price})">Add to Cart</button>
             <button class="btn btn-success w-100">Buy Now</button>
           </div>
         </div>
@@ -63,36 +62,13 @@ function renderProducts(highlight = "") {
   }
 }
 
-function addToCart(productId) {
-  const allProducts = Object.values(products).flat();
-  const product = allProducts.find(p => p.id === productId);
-  if (!product) return;
-
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-  const existingItem = cart.find(item => item.id === productId);
-
-  if (existingItem) {
-    existingItem.quantity += 1;
-  } else {
-    cart.push({ ...product, quantity: 1 });
-  }
-
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartSummary();
+function addToCart(price) {
+  cartCount++;
+  cartTotal += price;
+  document.getElementById('cart-count').textContent = cartCount;
+  document.getElementById('cart-total').textContent = cartTotal;
 }
 
-function updateCartSummary() {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-  const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-
-  document.querySelectorAll(".cart-count").forEach(el => el.textContent = totalCount);
-  document.querySelectorAll(".cart-total").forEach(el => el.textContent = totalPrice);
-}
-
-// Search Suggestion System
 const searchBar = document.getElementById('searchBar');
 const suggestionsBox = document.getElementById('suggestions');
 
@@ -107,9 +83,16 @@ searchBar.addEventListener('input', function () {
   }
 
   const allProducts = Object.values(products).flat();
-  const filteredProducts = allProducts.filter(product =>
-    product.name.toLowerCase().includes(searchTerm)
-  );
+  const seen = new Set();
+
+  const filteredProducts = allProducts.filter(product => {
+    const lowerName = product.name.toLowerCase();
+    if (lowerName.includes(searchTerm) && !seen.has(lowerName)) {
+      seen.add(lowerName);
+      return true;
+    }
+    return false;
+  });
 
   if (filteredProducts.length === 0) {
     suggestionsBox.style.display = 'none';
@@ -118,7 +101,7 @@ searchBar.addEventListener('input', function () {
 
   filteredProducts.forEach(product => {
     const div = document.createElement('div');
-    div.className = 'suggestion-item';
+    div.className = 'list-group-item suggestion-item';
     div.textContent = product.name;
     div.addEventListener('click', () => {
       searchBar.value = product.name;
@@ -131,8 +114,4 @@ searchBar.addEventListener('input', function () {
   suggestionsBox.style.display = 'block';
 });
 
-// Load products and cart count on page load
-window.addEventListener("load", () => {
-  renderProducts();
-  updateCartSummary();
-});
+renderProducts();

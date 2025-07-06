@@ -2,21 +2,24 @@
 const products = {
  
 "medicines-herbs-list": [
-  { name: 'Ashwagandha', price: 250, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz9ysWAIbhnsRLks2Ewyj4Z4X9egeQuAk3Zw&s' },
-  { name: 'Neem Powder', price: 300, img: 'https://m.media-amazon.com/images/I/51zagwhXhuL._AC_UF1000,1000_QL80_.jpg' },
-  { name: 'Turmeric Powder', price: 200, img: 'https://www.chettinadsnacksonline.com/cdn/shop/products/Turmericnew.png?v=1615736950' },
-  { name: 'Amla Juice', price: 350, img: 'https://static.toiimg.com/thumb/msid-115433359,width-1070,height-580,imgsize-124158,resizemode-75,overlay-toi_sw,pt-32,y_pad-40/photo.jpg' },
-  { name: 'Tulsi Drops', price: 400, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDe3Q1WAAvC_pGl1HKmmn2gCApoTHVwa_z1w&s' },
-  { name: 'Ginger Powder', price: 280, img: 'https://img.drz.lazcdn.com/static/np/p/041550faf9ef0c83c4852514e64339ed.jpg_720x720q80.jpg' },
-  { name: 'Brahmi', price: 260, img: 'https://www.easyayurveda.com/wp-content/uploads/2014/07/Brahmi-plant-with-flower.jpg' },
-  { name: 'Giloy Juice', price: 320, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxfGI4pFYXN_9Nwkquu6oY0GO2L7LStCPNjA&s' },
-  { name: 'Moringa Powder', price: 290, img: 'https://adrish.co.in/public/uploads/products/212221635591868.jpg' },
-  { name: 'Shilajit Resin', price: 600, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXHcpwycQnR3BiyjW3W0KxOmFw1SciG739Bw&s' },
-  { name: 'Triphala Powder', price: 310, img: 'https://dwibhashi.co.in/cdn/shop/articles/triphala_ceb7a881-c751-4f03-88c3-69736f992be1.jpg?v=1738677803' },
-  { name: 'Licorice Root', price: 270, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZEL3SO-tFfWmB8alvpaQAu4wnLLYhTuDj6A&s' }
+  { name: 'Ashwagandha', price: 250, img: 'https://i.pinimg.com/736x/a3/fe/d3/a3fed3ff7d53547f4162ca96a29ad18f.jpg' },
+  { name: 'Yarsagumba ', price: 300, img: 'https://i.pinimg.com/736x/83/bd/dc/83bddccd39782a0808c9b70de8613413.jpg' },
+  { name: 'Panch Aunle (Dactylorhiza hatagirea)', price: 200, img: 'https://efloraofindia.com/wp-content/uploads/2020/10/Dactylorrhiza%20hatagirea%20-3-.JPG' },
+  { name: ' Satuwa (Paris polyphylla)', price: 350, img: 'https://i.pinimg.com/736x/62/3f/de/623fdedf69adbc9da4d7146714d308f6.jpg' },
+  { name: 'Lauth Salla (Taxus wallichiana)', price: 400, img: 'https://www.edgeofexistence.org/wp-content/uploads/2024/04/Untitled-design-1.png' },
+  { name: 'Chiraito (Swertia chirayita)', price: 280, img: 'https://ediblebeautyaustralia.com/cdn/shop/articles/our-anti-ageing-botanical-wonder-214526_600x.jpg?v=1663738221' },
+  { name: 'Sugandhawal (Valeriana jatamansi)', price: 260, img: 'https://i.pinimg.com/736x/4a/c9/bd/4ac9bd8d108cb4f350e853493512b837.jpg' },
+  { name: 'Rudraksha Plant (Elaeocarpus ganitrus)', price: 320, img: 'https://i.pinimg.com/736x/b6/60/ad/b660ad9600b2212a010f9abd1f1a5392.jpg' },
+  { name: ' Titepati (Artemisia indica/nepalensis)', price: 290, img: 'https://i.pinimg.com/736x/f6/5e/6b/f65e6be857cb44efcdf1d6dd1a8b1aa5.jpg' },
+  { name: ' Brahmi (Bacopa monnieri)', price: 600, img: 'https://m.media-amazon.com/images/I/61iVLkY90SL._UF1000,1000_QL80_.jpg' },
+  { name: 'Amala', price: 310, img: 'https://i.pinimg.com/736x/28/42/92/28429204c204302f780252d0583d065e.jpg' },
+  { name: ' Bojho (Acorus calamus)', price: 270, img: 'https://i.pinimg.com/736x/ee/02/bc/ee02bc4cda7f458ddc7aec9bd64ec343.jpg' }
 ]
 
 };
+
+let cartCount = 0;
+let cartTotal = 0;
 
 function renderProducts(highlight = "") {
   let targetElement = null;
@@ -44,7 +47,7 @@ function renderProducts(highlight = "") {
               <i class="bi bi-star"></i>
               <i class="bi bi-star"></i>
             </div>
-            <button class="btn btn-primary mb-2 w-100" onclick="addToCart(${product.id})">Add to Cart</button>
+            <button class="btn btn-primary mb-2 w-100" onclick="addToCart(${product.price})">Add to Cart</button>
             <button class="btn btn-success w-100">Buy Now</button>
           </div>
         </div>
@@ -62,36 +65,13 @@ function renderProducts(highlight = "") {
   }
 }
 
-function addToCart(productId) {
-  const allProducts = Object.values(products).flat();
-  const product = allProducts.find(p => p.id === productId);
-  if (!product) return;
-
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-  const existingItem = cart.find(item => item.id === productId);
-
-  if (existingItem) {
-    existingItem.quantity += 1;
-  } else {
-    cart.push({ ...product, quantity: 1 });
-  }
-
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartSummary();
+function addToCart(price) {
+  cartCount++;
+  cartTotal += price;
+  document.getElementById('cart-count').textContent = cartCount;
+  document.getElementById('cart-total').textContent = cartTotal;
 }
 
-function updateCartSummary() {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-  const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-
-  document.querySelectorAll(".cart-count").forEach(el => el.textContent = totalCount);
-  document.querySelectorAll(".cart-total").forEach(el => el.textContent = totalPrice);
-}
-
-// Search Suggestion System
 const searchBar = document.getElementById('searchBar');
 const suggestionsBox = document.getElementById('suggestions');
 
@@ -130,8 +110,4 @@ searchBar.addEventListener('input', function () {
   suggestionsBox.style.display = 'block';
 });
 
-// Load products and cart count on page load
-window.addEventListener("load", () => {
-  renderProducts();
-  updateCartSummary();
-});
+renderProducts();
