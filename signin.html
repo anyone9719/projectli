@@ -5,14 +5,18 @@
   <title>Nepalium - Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/png" href="nepalium green final.png" />
+
+  <!-- Ionicons -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-      <link rel="icon" type="image/png" href="nepalium green final.png">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="responsive.css">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
     body {
       display: flex; justify-content: center; align-items: center;
       min-height: 100vh; background: #000; position: relative; overflow: hidden;
@@ -29,6 +33,7 @@
       background: linear-gradient(#2196f3, #e91e63);
       clip-path: circle(20% at 10% 10%);
     }
+
     .login-container {
       position: relative; width: 400px; padding: 40px;
       background: rgba(19, 200, 94, 0.85);
@@ -36,6 +41,7 @@
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.1); z-index: 10;
     }
+
     .brand-logo { text-align: center; margin-bottom: 30px; }
     .brand-logo h1 { color: #fff; font-size: 2rem; font-weight: 600; }
     .brand-logo h1 span { color: #0f0; display: block; font-size: 1.5rem; margin-top: 5px; }
@@ -48,6 +54,7 @@
       transform: translateX(-50%); width: 80px; height: 3px;
       background: #0f0; border-radius: 3px;
     }
+
     .input-group {
       position: relative; margin-bottom: 30px;
     }
@@ -55,21 +62,35 @@
       position: absolute; left: 10px; top: 50%;
       transform: translateY(-50%); color: white; font-size: 1.2em;
     }
+
     .input-group input {
       width: 100%; padding: 12px 20px 12px 40px;
       background: transparent; border: none;
       border-bottom: 2px solid white; outline: none;
       font-size: 1em; color: white; transition: 0.3s;
     }
+
     .input-group input:focus { border-bottom-color: #0f0; }
+
     .input-group label {
       position: absolute; left: 40px; top: 50%;
       transform: translateY(-50%);
       color: white; pointer-events: none; transition: 0.3s;
     }
+
     .input-group input:focus ~ label,
     .input-group input:valid ~ label {
       top: -10px; left: 35px; font-size: 0.8em; color: #0f0;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2em;
+      color: white;
+      cursor: pointer;
     }
 
     .form-options {
@@ -77,8 +98,10 @@
       align-items: center; margin-bottom: 20px;
       font-size: 0.9em; color: white;
     }
+
     .remember-me { display: flex; align-items: center; }
     .remember-me input { margin-right: 5px; }
+
     .forgot-password a {
       color: white; text-decoration: none; transition: 0.3s;
     }
@@ -102,7 +125,7 @@
       text-align: center; color: white; font-size: 0.9em;
     }
     .register-link a {
-      color: #0f0; text-decoration: none; font-weight: 600; transition: 0.3s;
+      color: #ffffff; text-decoration: none; font-weight: 600; transition: 0.3s;
     }
     .register-link a:hover { text-decoration: underline; }
   </style>
@@ -110,7 +133,7 @@
 <body>
   <div class="login-container">
     <div class="brand-logo">
-      <h1 style="color: rgb(38, 248, 5);">
+      <h1>
         <img width="100%" src="final nepalium white.png" alt="Nepalium Logo" />
       </h1>
     </div>
@@ -128,6 +151,9 @@
         <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
         <input type="password" id="password" required />
         <label>Password</label>
+        <span class="toggle-password">
+          <ion-icon id="eyeIcon" name="eye-off-outline"></ion-icon>
+        </span>
       </div>
 
       <div class="form-options">
@@ -151,7 +177,17 @@
   <script>
     const form = document.getElementById("loginForm");
 
-    // ✅ Forgot password with OTP simulation
+    // Toggle password visibility
+    const toggleIcon = document.getElementById("eyeIcon");
+    const passwordInput = document.getElementById("password");
+
+    toggleIcon.addEventListener("click", function () {
+      const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+      passwordInput.setAttribute("type", type);
+      toggleIcon.setAttribute("name", type === "password" ? "eye-off-outline" : "eye-outline");
+    });
+
+    // Forgot password with OTP
     document.getElementById("forgotPasswordLink").addEventListener("click", function (e) {
       e.preventDefault();
       const email = prompt("📧 Enter your registered email:");
@@ -168,7 +204,6 @@
         return;
       }
 
-      // ✅ Generate OTP
       const generatedOTP = Math.floor(100000 + Math.random() * 900000);
       alert(`📨 OTP sent to your email (simulated): ${generatedOTP}`);
 
@@ -181,7 +216,7 @@
       alert(`✅ OTP Verified!\nYour password is: ${user.password}`);
     });
 
-    // ✅ Login functionality
+    // Login
     form.addEventListener("submit", function (e) {
       e.preventDefault();
 
@@ -203,7 +238,6 @@
 
       alert("✅ Login successful!");
 
-      // Store login session
       if (document.getElementById("remember").checked) {
         localStorage.setItem("loggedInUser", JSON.stringify(user));
       } else {

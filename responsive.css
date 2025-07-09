@@ -188,6 +188,8 @@
   .cart-wraper {
     display: block;
     padding: 10px;
+    padding-bottom: 110px !important;
+    width: 800px !important;
   }
   .customSwiper .button-container {
     margin-top: 10px;

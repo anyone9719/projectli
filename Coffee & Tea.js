@@ -2,18 +2,18 @@
 const products = {
   
 "coffee-tea-list": [
-  { name: 'Black Coffee', price: 200, img: 'https://media.istockphoto.com/id/157528129/photo/mug-on-plate-filled-with-coffee-surrounded-by-coffee-beans.jpg?s=612x612&w=0&k=20&c=W_za-myO9QP_dimiJeZXsR4G2GHjrdo0RTyO3yVhopQ=' },
-  { name: 'Espresso', price: 250, img: 'https://media.istockphoto.com/id/1455924833/photo/fresh-double-espresso-coffee-and-coffee-beans-on-wooden-table.jpg?s=612x612&w=0&k=20&c=STuLBo05aQ5nHZxU2NnWAlaADSLCnZxzLIkED9sMEUM=' },
-  { name: 'Cappuccino', price: 300, img: 'https://thumbs.dreamstime.com/b/coffee-cappuccino-3979271.jpg' },
-  { name: 'Latte', price: 280, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKKlBszDY2-tsXAeefqoqvq0vUaybmh2r0fg&s' },
-  { name: 'Green Tea', price: 180, img: 'https://media.istockphoto.com/id/628986454/photo/glass-cup-with-fresh-green-tea.jpg?s=612x612&w=0&k=20&c=XaspjM0PSAzw8rvNJA-C2BE95-xXbDzhwJRYodIh8Dc=' },
-  { name: 'Masala Chai', price: 150, img: 'https://media.istockphoto.com/id/614533094/photo/indian-masala-chai-tea.jpg?s=612x612&w=0&k=20&c=0P-npS30JIBX0FA9csLyB0WYtkEU7gWkNE7nSnvXlSE=' },
-  { name: 'Lemon Tea', price: 160, img: 'https://cdn.shopify.com/s/files/1/1146/8126/files/Lemon-Tea-Pictures_large.jpg?v=1503945632' },
-  { name: 'Herbal Tea', price: 200, img: 'https://www.treehugger.com/thmb/uWQw8MStw9Zetyqli_5F3qoS9Dc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/tea-cup-with-several-dried-tea-leaves-and-flowers-1201496311-55f0a4dfdbc54605966a0a9ec2f40f3c.jpg' },
-  { name: 'Iced Coffee', price: 220, img: 'https://www.mybakingaddiction.com/wp-content/uploads/2023/10/brown-sugar-iced-shaken-espresso-hero.jpg' },
-  { name: 'Turmeric Latte', price: 260, img: 'https://images.getrecipekit.com/20240903060407-turmeric-20latte.jpeg?width=650&quality=90&' },
-  { name: 'Cold Brew', price: 240, img: 'https://www.eatingwell.com/thmb/ypZDdq0HS72jXHjFCAt5eXRtF7E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/How-to-Make-Cold-Brew-Coffee-b4af3ec355b642e78bb79e18991a0da0.jpg' },
-  { name: 'Oolong Tea', price: 230, img: 'https://i.pinimg.com/736x/41/e1/ae/41e1ae9b50f65d8eb6856990c26001b7.jpg' }
+  { name: 'Typica Arabica', price: 800, img: 'https://5.imimg.com/data5/SELLER/Default/2024/6/430080235/ED/FI/MQ/212628420/arabica-coffee-beans-500x500.jpg' },
+  { name: 'Bourbon Arabica', price: 250, img: 'https://m.media-amazon.com/images/I/315+ac-SG+L._AC_UF894,1000_QL80_.jpg' },
+  { name: 'Caturra', price: 300, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK_RwhRnr15lTJApUiXd52VKuJ5CfG6Pa9Jw&s' },
+  { name: 'Pacamara', price: 280, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzH9UPkVFxV3EwxOMjNeDRVVmV_qqBNp1knQ&s' },
+  { name: 'Catimor', price: 180, img: 'https://s.alicdn.com/@sc04/kf/A97532ededfb54d468e73962a4858a38eL.jpg' },
+  { name: 'golden tips tea', price: 150, img: 'https://nepalteaexchange.com.np/cdn/shop/products/GoldenTips1stclass_1024x1024.jpg?v=1653118801' },
+  { name: 'Orthodox Black Tea', price: 160, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTZBXAwtaZfRbIuo0rUUmCkn3CEB47icnLlA&s' },
+  { name: 'Green Tea', price: 200, img: 'https://teashop.com/cdn/shop/files/matcha-gracia-blend-1000x1000_c4c72357-0b7c-4e6d-8ad0-772a35686a70.jpg?v=1720782443&width=1000' },
+  { name: 'White Tea', price: 220, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFMy1MQpOVgjVuTokGPNy0yvTOouH0DWHwjg&s' },
+  { name: 'Oolong Tea', price: 260, img: 'https://cdn.shopify.com/s/files/1/1146/8126/files/drink-oolong-tea_high_1.jpg?v=1591071201'},
+  { name: 'Silver Tips (White Tea variant)', price: 240, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxTkblLiBCCDkmDb46FyZ_RsTEvJgwWEllIg&s' },
+  { name: 'Organic Shade-Grown Coffee (General practice)', price: 230, img: 'https://royalnepalcoffee.com/frontend/images/shade-grown-2.jpg' }
 ]
 
 

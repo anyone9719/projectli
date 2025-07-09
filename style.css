@@ -73,7 +73,9 @@
     .search-container {
       width: 400px;
     }
-
+.nav-link:hover{
+  color: #fff;
+}
     .search-con{
       display: none;
       width: 400px;

@@ -6,7 +6,7 @@ const products = {
   { name: 'Wild Honey', price: 600, img: 'https://media.istockphoto.com/id/532400492/photo/exposed-beehive.jpg?s=612x612&w=0&k=20&c=GD-nPzRlmTzBBZWHU7R1DUQ48e86v4JBNslvHYyNX1w=' },
   { name: 'Buff Ghee', price: 1300, img: 'https://5.imimg.com/data5/IOS/Default/2023/10/354592066/DE/BP/DZ/23509044/product-jpeg-500x500.png' },
   { name: 'Mustard Honey', price: 400, img: 'https://static.wixstatic.com/media/302bc4_1161ffac7eb1470ea722a3e30393a14e~mv2.jpg/v1/fill/w_480,h_342,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/302bc4_1161ffac7eb1470ea722a3e30393a14e~mv2.jpg' },
-  { name: 'Flavored Honey', price: 550, img: 'https://source.unsplash.com/200x200/?flavored-honey' },
+  { name: 'Flavored Honey', price: 550, img: 'https://5.imimg.com/data5/YA/RW/MY-1579893/honey-flavour.jpg' },
   { name: 'Neem Honey', price: 580, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqYIJFth8eek5c4OGBEv8lnxZTsRaY2MqV_A&s' },
   { name: 'Mountain Honey', price: 620, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY6JAASWTCk-B-3uFEA8b2UjXCeyHfoCBwMw&s' },
   { name: 'Village Ghee', price: 1100, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmbm9LQ-WyppHgsl4bzoBcsXbJt6WB7IWlVw&s' },
